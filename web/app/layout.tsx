@@ -7,7 +7,7 @@ import Navbar from "@/components/Navbar";
 const jost = Jost({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "tidytube",
+  title: "tidytube - Customise Youtube's UI - Browser Extension",
   description: "tidytube is an open source browser extension that allows users to customise the Youtube UI.",
 };
 

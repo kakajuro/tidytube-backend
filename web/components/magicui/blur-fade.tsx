@@ -63,7 +63,6 @@ export default function BlurFade({
           </motion.a>
         </AnimatePresence>
       );
-      break
     case false:
       return (
         <AnimatePresence>
@@ -84,7 +83,6 @@ export default function BlurFade({
           </motion.div>
         </AnimatePresence>
       );
-      break
     default:
       break
   }
