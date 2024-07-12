@@ -15,9 +15,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className={jost.className} lang="en">
-      <div>From Layout</div>
-      <body>{children}</body>
+    <html className={`bg-custom-dark text-white ${jost.className}`} lang="en">
+      <body>
+        {children}
+      </body>
     </html>
   );
 }

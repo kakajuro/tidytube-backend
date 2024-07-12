@@ -8,7 +8,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      "custom-dark": "#09090B",
+      colors: {
+        "custom-dark": "#09090B",
+        "custom-grey": "#96969E",
+      }
     },
   },
   plugins: [],
