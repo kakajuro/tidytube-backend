@@ -1,5 +1,4 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import Meteors from "./magicui/meteors";
 import Particles from "./magicui/particles";
 
 export default function Hero() {
@@ -15,7 +14,7 @@ export default function Hero() {
       </BlurFade>
       <BlurFade className="w-[50%] text-2xl" delay={1.2} duration={0.6}>
         <span>Customise your Youtube experience with the tidytube browser extension. </span>
-        <BlurFade className="pt-1" delay={1.2}>
+        <BlurFade className="pt-1" delay={1.2} inline>
           <span>Tidytube allows you to remove parts of the Youtube UI so you can see more of what you <a className="bg-gradient-to-r from-red-500 via-red-600 to-red-500 text-transparent bg-clip-text underline decoration-red-700/40">actually</a> want to see</span>
         </BlurFade>
       </BlurFade>
