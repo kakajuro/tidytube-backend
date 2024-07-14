@@ -13,7 +13,7 @@ export default function Hero() {
   const baseDelayIcons = 1.2;
 
   return (
-    <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-36 overflow-hidden select-none text-center">
+    <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center">
       <Particles className="absolute inset-0 z-[-5]" quantity={150} refresh />
       <BlurFade className="mb-3" delay={0.4} inView inline={false}>
         <h1 className="font-semibold text-5xl sm:text-7xl lg:text-8xl">Youtube but
@@ -22,13 +22,13 @@ export default function Hero() {
           </BlurFade>  
         </h1>
       </BlurFade>
-      <BlurFade className="w-[60%] md:w-[65%] lg:w-[50%] text-2xl pt-4" delay={1} duration={0.6} inline={false}>
-        <span>Customise your Youtube experience with the tidytube browser extension. </span>
+      <BlurFade className="w-[60%] md:w-[65%] lg:w-[50%] xl:w-[45%] text-2xl pt-4" delay={1} duration={0.6} inline={false}>
+        <span>Customise your Youtube experience with the tidytube browser extension.</span>
         <BlurFade className="pt-1" delay={1} inline>
           <span>Tidytube allows you to remove sections of the Youtube UI so you can see more of what you <span className="text-red-600 underline decoration-red-700/40">actually</span> want to see</span>
         </BlurFade>
       </BlurFade>
-      <BlurFade className="w-[50%] text-2xl lg:pb-10 lg:pt-10" delay={1.2} duration={0.6}>
+      <BlurFade className="w-[50%] text-2xl xl:pb-4 xl:pt-10" delay={1.2} duration={0.6}>
         <h2 className="pt-20 text-4xl font-semibold bg-gradient-to-tr from-white via-slate-300 from-white text-transparent bg-clip-text">Download</h2>
       </BlurFade>
       <div className="flex flex-row justify-evenly items-center pt-10 h-8 w-[80%] sm:w-[60%] md:w-[50%] lg:w-[40%]">
