@@ -13,7 +13,7 @@ export default function Stats() {
         <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold sm:text-4xl">does anyone actually use this thing?</h2>
           <p className="mt-4 sm:text-xl">
-            tidytube is already being used by many to improve their experience on Youtube. Here is a quick summary of the overall stats. See the full breakdown of the stats on the stats page.
+            tidytube is already being used by many to improve their experience on Youtube. Here is a quick summary of the overall stats. See the full breakdown on the stats page.
           </p>
         </div>
         <div className="mt-4 mb-12 sm:mt-12">
