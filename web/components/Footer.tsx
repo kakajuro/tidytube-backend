@@ -28,6 +28,9 @@ export default function Footer() {
           <li>
             <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Privacy Policy </Link>
           </li>
+          <li>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Credits </Link>
+          </li>
         </ul>
         <p className="mt-8 text-center text-sm text-gray-500">
           Copyright &copy; {new Date().getFullYear()}. All rights reserved.
