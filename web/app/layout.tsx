@@ -3,6 +3,8 @@ import { Jost } from "next/font/google";
 import "./globals.css";
 
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import BackToTopButton from "@/components/BackToTopButton";
 
 const jost = Jost({ subsets: ["latin"] });
 
@@ -21,6 +23,10 @@ export default function RootLayout({
       <body>
         <Navbar />
         {children}
+        <div className="bg-footer-col">
+          <Footer />
+          <BackToTopButton />
+        </div>
       </body>
     </html>
   );
