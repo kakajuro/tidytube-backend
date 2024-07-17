@@ -6,7 +6,7 @@ import tidytubeIcon from "@/app/icons/icon32.png";
 export default function Footer() {
 
   return (
-    <footer className="bg-footer-col">
+    <footer>
       <div className="mx-auto max-w-5xl px-4 pt-16 sm:px-6 lg:px-8">
         <div className="flex flex-row items-center justify-center text-red-700 select-none">
           <Image src={tidytubeIcon} alt="tidytube icon" />
