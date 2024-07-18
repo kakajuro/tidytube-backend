@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import tidytubeIcon from "@/app/icons/icon32.png";
+import tidytubeIcon from "@/app/images/icons/icon32.png";
 
 export default function Footer() {
 

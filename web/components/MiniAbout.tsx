@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { synopsisForMiniAbout } from "@/components/text";
 
-import tidytubeScreenshot from "../app/tidytubescreenshot.png";
+import tidytubeScreenshot from "@/app/images/tidytubescreenshot.png";
 
 export default function MiniAbout() {
 

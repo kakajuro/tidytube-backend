@@ -7,7 +7,7 @@ import { FaGithub } from "react-icons/fa";
 import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa"
 
-import tidytubeIcon from "@/app/icons/icon32.png";
+import tidytubeIcon from "@/app/images/icons/icon32.png";
 
 
 export default function Navbar() {
@@ -38,28 +38,28 @@ export default function Navbar() {
         <div className="flex items-center gap-4 flex-row">
           <div className="sm:flex sm:gap-4 md:gap-8">
             <FaGithub className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="Extension Repository" size={25}  />  
-            <FaDiscord className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube discord server" size={25}  />
             <FaTwitter className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube twitter account" size={25}  />
+            <FaDiscord className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube discord server" size={25}  />
 
-          <button
-            className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
-          >
-            <span className="sr-only">Toggle menu</span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="3"
-              color="red"
+            <button
+              className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
+              <span className="sr-only">Toggle menu</span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth="3"
+                color="red"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
-    </div>
-  </header>   
+    </header>   
   )
 }
