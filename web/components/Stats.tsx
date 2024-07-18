@@ -1,6 +1,4 @@
-"use client";
-
-import { redirect } from "next/navigation"
+import Link from "next/link";
 
 import NumberTicker from "./magicui/number-ticker";
 
@@ -40,9 +38,10 @@ export default function Stats() {
         </div>
         <button 
           className="hover:underline hover:text-red-700 transition-all ease-in-out"
-          onClick={() => redirect("/stats")}
         >
-          See all stats
+          <Link href="stats">
+            See all stats
+          </Link>
         </button>
       </div>
     </section>

@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import Link from "next/link";
 
@@ -21,23 +19,25 @@ export default function Navbar() {
         <nav aria-label="Global" className="hidden md:block">
           <ul className="flex items-center gap-6 text-sm">
             <li>
-              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="#"> Home </Link>
+              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="./"> Home </Link>
             </li>
             <li>
-              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="#"> About </Link>
+              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="/about"> About </Link>
             </li>
             <li>
-              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="#"> Stats </Link>
+              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="/stats"> Stats </Link>
             </li>
             <li>
-              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="#"> Donate </Link>
+              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="/donate"> Donate </Link>
             </li>
           </ul>
         </nav>
 
         <div className="flex items-center gap-4 flex-row">
           <div className="sm:flex sm:gap-4 md:gap-8">
-            <FaGithub className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="Extension Repository" size={25}  />  
+            <Link href="https://github.com/kakajuro/tidytube" passHref target="_blank">
+              <FaGithub className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="Extension Repository" size={25}  />  
+            </Link>
             <FaTwitter className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube twitter account" size={25}  />
             <FaDiscord className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube discord server" size={25}  />
 

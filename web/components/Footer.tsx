@@ -14,25 +14,25 @@ export default function Footer() {
         </div>
         <ul className="mt-6 flex flex-wrap justify-center gap-6 md:gap-8 lg:gap-12">
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Home </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="./"> Home </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> About </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="about"> About </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Stats </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="stats"> Stats </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Donate </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="donate"> Donate </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Privacy Policy </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="privacy-policy"> Privacy Policy </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Terms Of Use </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="tos"> Terms Of Use </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Credits </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="credits"> Credits </Link>
           </li>
         </ul>
         <p className="mt-8 text-center text-sm text-gray-500">

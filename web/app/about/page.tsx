@@ -28,17 +28,17 @@ export default function About() {
         <h1 className="text-3xl font-semibold pb-6">works best with:</h1>
         <ul className="text-xl">
           <li>
-            <Link className="hover:cursor-pointer hover:underline" href="https://sponsor.ajay.app" passHref>
+            <Link className="hover:cursor-pointer hover:underline" href="https://sponsor.ajay.app" passHref target="_blank">
               -SponsorBlock
             </Link>
           </li>
           <li>
-            <Link className="hover:cursor-pointer hover:underline" href="https://ublockorigin.com/" passHref>
+            <Link className="hover:cursor-pointer hover:underline" href="https://ublockorigin.com/" passHref target="_blank">
               -uBlock Origin
             </Link>
           </li>
           <li>
-            <Link className="hover:cursor-pointer hover:underline" href="https://www.youtube.com/premium" passHref>
+            <Link className="hover:cursor-pointer hover:underline" href="https://www.youtube.com/premium" passHref target="_blank">
               -Youtube Premium
             </Link>
           </li>
