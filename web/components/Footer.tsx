@@ -29,6 +29,9 @@ export default function Footer() {
             <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Privacy Policy </Link>
           </li>
           <li>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Terms Of Use </Link>
+          </li>
+          <li>
             <Link className="text-gray-700 transition hover:text-gray-700/75" href="#"> Credits </Link>
           </li>
         </ul>
