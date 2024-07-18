@@ -1,4 +1,9 @@
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Credits - tidytube"
+}
 
 export default function page() {
   return (
@@ -7,7 +12,7 @@ export default function page() {
         <h1 className="text-5xl font-semibold pb-8">credits:</h1>
         <ul className="text-xl">
           <li className="pb-4">
-            Created by: <Link className="hover:underline hover:cursor-pointer" href="https://github.com/kakajuro" passHref target="_blank">@kakajuro</Link>
+            Created + maintined by <Link className="hover:underline hover:cursor-pointer" href="https://github.com/kakajuro" passHref target="_blank">@kakajuro</Link>
           </li>
           <li className="pb-4">
             <Link className="hover:underline hover:cursor-pointer" href="https://sponsor.ajay.app" passHref target="_blank">Sponsorblock </Link> 

@@ -1,9 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Metadata } from "next";
 
 import { dataNoticeAbout, howItWorksAbout } from "@/components/text"
 
 import sectionsRemovedGif from "@/app/images/sectionsRemoved.gif";
+
+export const metadata: Metadata = {
+  title: "About - tidytube"
+}
 
 export default function About() {
 
