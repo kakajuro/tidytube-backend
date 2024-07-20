@@ -1,5 +1,9 @@
 "use client";
 
+import { useAtomValue } from "jotai";
+import { atomEffect } from "jotai-effect";
+import { modalOpenAtom } from "@/lib/store";
+
 import BlurFade from "@/components/magicui/blur-fade";
 import Particles from "./magicui/particles";
 
@@ -8,17 +12,24 @@ import { BsBrowserEdge } from "react-icons/bs";
 import { BsBrowserFirefox } from "react-icons/bs";
 import { FaOpera } from "react-icons/fa6";
 
+const atomSubscriber = atomEffect((get, set) => {
+  const newValue = get(modalOpenAtom);
+  console.log(`modalOpen now: ${newValue}`);
+  set(modalOpenAtom, newValue);
+});
+
 export default function Hero() {
 
+  const modalOpen = useAtomValue(modalOpenAtom);
   const baseDelayIcons = 1.2;
 
   return (
     <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center">
       <Particles className="absolute inset-0 z-[-5]" quantity={150} refresh />
       <BlurFade className="mb-3" delay={0.4} inView inline={false}>
-        <h1 className="font-semibold text-5xl sm:text-7xl lg:text-8xl">Youtube but
-          <BlurFade className="bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text" delay={0.8} inline>
-            <span> tidier.</span>
+        <h1 className={!modalOpen ? "z-0 font-semibold text-5xl sm:text-7xl lg:text-8xl" : "z-0 font-semibold text-5xl sm:text-7xl lg:text-8xl text-transparent"}>Youtube but
+          <BlurFade delay={0.8} inline>
+            <span className={!modalOpen ? "bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text" : "text-transparent"}> tidier.</span>
           </BlurFade>  
         </h1>
       </BlurFade>

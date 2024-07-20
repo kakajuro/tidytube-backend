@@ -25,7 +25,7 @@ const config = {
       colors: {
         "custom-dark": "#09090B",
         "footer-col": "#0a0a0d",
-        "custom-grey": "#96969E"
+        "custom-grey": "#96969E",
       },
       dropShadow: {
         glow: [
