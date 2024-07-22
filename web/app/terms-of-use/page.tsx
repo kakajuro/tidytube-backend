@@ -17,9 +17,6 @@ export default function page() {
           <li className="pb-4">
             -You can be removed from the service if we see a sufficient reason to do so
           </li>
-          <li className="pb-4">
-            -If you uninstall the extension submissions to the stats will stay in the database
-          </li>
         </ul>
       </div>
     </main>
