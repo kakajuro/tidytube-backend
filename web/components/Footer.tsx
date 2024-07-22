@@ -29,7 +29,7 @@ export default function Footer() {
             <Link className="text-gray-700 transition hover:text-gray-700/75" href="privacy-policy"> Privacy Policy </Link>
           </li>
           <li>
-            <Link className="text-gray-700 transition hover:text-gray-700/75" href="tos"> Terms Of Use </Link>
+            <Link className="text-gray-700 transition hover:text-gray-700/75" href="terms-of-use"> Terms Of Use </Link>
           </li>
           <li>
             <Link className="text-gray-700 transition hover:text-gray-700/75" href="credits"> Credits </Link>
