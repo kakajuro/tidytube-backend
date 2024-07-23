@@ -25,8 +25,8 @@ function MobileNav() {
   } 
 
   return (
-    <section className="z-10 absolute bg-custom-dark w-screen h-[68vh] sm:h-[75vh] flex flex-col items-center justify-center md:hidden">
-      <div className="relative flex flex-col items-center justify-center pt-64 w-screen">
+    <section className="z-100 fixed bg-custom-dark w-screen h-[30vh] flex flex-col items-center justify-center md:hidden">
+      <div className="relative flex flex-col items-center justify-center pt-32 w-screen">
         <div className="ml-auto pr-6 pb-2">
           <button onClick={handleClick}>
             <MdClose className="hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="Close navigation menu" size={25}  />
@@ -35,7 +35,7 @@ function MobileNav() {
         <Link onClick={handleClick} className="pb-4" href="./">
           <Image src={tidytubeIcon} alt="tidytube icon" />
         </Link>
-        <ul className="flex flex-col items-center gap-6 text-sm">
+        <ul className="flex flex-row items-center gap-6 text-sm">
           <li>
             <Link onClick={handleClick} className="text-lg text-white transition hover:text-white/75 hover:underline" href="./"> Home </Link>
           </li>
