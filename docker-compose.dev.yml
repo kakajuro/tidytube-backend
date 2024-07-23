@@ -1,3 +1,4 @@
+
 # Compose file for development
 
 services:
@@ -7,7 +8,7 @@ services:
       context: web
       dockerfile: Dockerfile
       target: dev
-    restart: always
+    restart: unless-stopped
     environment:
       - NODE_ENV=development
     volumes:
@@ -16,3 +17,23 @@ services:
       - /app/.next
     ports:
       - 8080:3000
+    networks:
+      - tidytube-dev
+  server:
+    container_name: server
+    build:
+      context: server
+      dockerfile: Dockerfile
+      target: dev
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./server:/app
+    ports:
+      - 8000:3000
+    networks:
+      - tidytube-dev
+
+networks:
+  tidytube-dev:

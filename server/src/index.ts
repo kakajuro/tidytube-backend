@@ -7,7 +7,12 @@ const app: Express = express();
 const port = process.env.PORT;
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("API working");
+  console.log(`Recieved Request: ${req.ip}`)
+  res.send("API working...");
+});
+
+app.get("/test", (req: Request, res: Response) => {
+  res.send("test route!");
 });
 
 app.listen(port, () => {
