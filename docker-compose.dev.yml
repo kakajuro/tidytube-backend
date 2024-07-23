@@ -1,0 +1,18 @@
+# Compose file for development
+
+services:
+  web:
+    container_name: web
+    build: 
+      context: web
+      dockerfile: Dockerfile
+      target: dev
+    restart: always
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - ./web:/app
+      - /app/node_modules
+      - /app/.next
+    ports:
+      - 8080:3000
