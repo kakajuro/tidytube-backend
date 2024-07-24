@@ -2,6 +2,7 @@
 # Compose file for development
 
 services:
+  # Site
   web:
     container_name: web
     build: 
@@ -19,6 +20,8 @@ services:
       - 8080:3000
     networks:
       - tidytube-dev
+
+  # Server
   server:
     container_name: server
     build:
@@ -26,6 +29,8 @@ services:
       dockerfile: Dockerfile
       target: dev
     restart: unless-stopped
+    depends_on:
+      - redis
     environment:
       - NODE_ENV=development
     volumes:
@@ -34,6 +39,26 @@ services:
       - 8000:3000
     networks:
       - tidytube-dev
+
+  # DB
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: unless-stopped
+    command: 
+      - sh
+      - -c
+      - redis-server --requirepass "$${REDIS_PASSWORD:?REDIS_PASSWORD variable is not set}"
+    volumes:
+      - ./redis/redis-data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    networks:
+      - tidytube-dev
+    env_file:
+      - redis/.env.redis
+    
 
 networks:
   tidytube-dev:
