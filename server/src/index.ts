@@ -6,11 +6,14 @@ import morgan from "morgan";
 import dotenv from "dotenv";
 dotenv.config();
 
+import installRouter from "./routes/install";
+
 const port = process.env.PORT;
 const env = process.env.NODE_ENV;
 
 const app:Express = express();
 
+// Middleware
 app.use(helmet());
 if (env == "development") {
   app.use(morgan("dev"));
@@ -21,9 +24,8 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/api", (req: Request, res: Response, next: NextFunction) => {
-  return res.send({"result": "API working..."});
-});
+// Routers
+app.use("/api/install", installRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server running on PORT: ${port}...`);
