@@ -3,7 +3,7 @@ import express, { Request, Response } from "express";
 import validInstall from "../middleware/validInstall";
 import redisClient from "../util/redisClient";
 
-import Crypto from "crypto-js";
+import { sha256 } from 'js-sha256';
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -14,16 +14,16 @@ router.get("/", validInstall, async (req: Request, res: Response) => {
 
 	const clientIDSecret = process.env.CLIENTIDSECRET!;
 
-	const encryptedClientID = req.headers["client-id"]! as string;
+	const clientID = req.headers["client-id"]! as string;
 
-	let clientID = Crypto.AES.decrypt(encryptedClientID, clientIDSecret).toString(Crypto.enc.Utf8);
+	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
 	// Check if clientID exists and remove it if it does
-	await redisClient.exists(clientID)
+	await redisClient.exists(encryptedClientID)
 	.then(exists => {
 
 		if (exists) {
-			redisClient.del(clientID)
+			redisClient.del(encryptedClientID)
 			.catch(error => {
 				console.warn(`Error deleting clientID from database: ${error}`);
 				return res.status(500).send("An internal server error occurred");
