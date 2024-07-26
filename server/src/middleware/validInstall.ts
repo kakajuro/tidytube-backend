@@ -9,8 +9,8 @@ export default async function validInstall(req: Request, res: Response, next: Ne
   
   const timestamp = new Date().getTime();
 
-	const installKey = process.env.INSTALLKEY!;
-	const installKeySecret = process.env.INSTALLKEYSECRET!;
+  const installKey = process.env.INSTALLKEY!;
+  const installKeySecret = process.env.INSTALLKEYSECRET!;
 
   const incomingInstallKey = req.headers["incoming-install-key"];
 
