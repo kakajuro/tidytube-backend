@@ -57,7 +57,7 @@ services:
     networks:
       - tidytube-dev
     env_file:
-      - redis/.env.redis
+      - server/.env
     
 
 networks:

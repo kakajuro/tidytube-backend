@@ -17,10 +17,10 @@ export default async function validInstall(req: Request, res: Response, next: Ne
   const hashedInstallKey = sha256.hmac(installKeySecret, installKey);
 
   if (hashedInstallKey === incomingInstallKey) {
-    console.log(`${timestamp}: New user authenticated`);
+    console.log(`${timestamp}: User with valid install authenticated`);
     next();
   } else {
-    console.log(`${timestamp}: New user authenticated`);
+    console.log(`${timestamp}: User with invalid install detected`);
     res.status(401).json({"message": "Invalid credentials"});
   }
 

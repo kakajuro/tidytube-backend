@@ -7,6 +7,7 @@ import dotenv from "dotenv";
 dotenv.config();
 
 import installRouter from "./routes/install";
+import uninstallRouter from "./routes/uninstall";
 
 const port = process.env.PORT;
 const env = process.env.NODE_ENV;
@@ -26,7 +27,10 @@ app.use(express.urlencoded({ extended: false }));
 
 // Routers
 app.use("/api/install", installRouter);
+app.use("/api/uninstall", uninstallRouter);
 
+
+// Start server
 app.listen(port, () => {
   console.log(`[server]: Server running on PORT: ${port}...`);
 });
