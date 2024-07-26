@@ -8,6 +8,7 @@ dotenv.config();
 
 import installRouter from "./routes/install";
 import uninstallRouter from "./routes/uninstall";
+import getInstallNoRouter from "./routes/getInstallNo";
 
 const port = process.env.PORT;
 const env = process.env.NODE_ENV;
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 // Routers
 app.use("/api/install", installRouter);
 app.use("/api/uninstall", uninstallRouter);
+app.use("/api/getInstallNo", getInstallNoRouter);
 
 
 // Start server
