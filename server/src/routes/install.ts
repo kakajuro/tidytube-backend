@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 
 import validInstall from "../middleware/validInstall";
+import redisClient from "../util/redisClient";
 
 import generateUniqueID from "generate-unique-id";
 import Crypto from "crypto-js";
@@ -21,15 +22,29 @@ router.get('/', validInstall, async (req: Request, res: Response) => {
 
     clientID = generateUniqueID({ length: 64 });
 
-    // Call DB and check ID is not being used already
-    clientIDisNew = true;
+    // Check if clientID already exists
+    await redisClient.exists(clientID)
+    .then((exists) => {
 
+      if (exists) {
+        clientIDisNew = false;
+      } else {
+        clientIDisNew = true;
+      }
+
+    })
+    .catch(error => {
+      console.warn(`There was an error checking whether this key exists: ${clientID}`);
+      res.status(500).send("An internal server error occurred");
+    })
+  
   }
 
   let encryptedUserID = Crypto.AES.encrypt(clientID, clientIDSecret).toString();
 
   // Store userID in database and return encyrpted userID
-  console.log(clientID);
+  redisClient.set(clientID, 1);
+  console.log(`New user initialised with clientID: ${clientID}`);
   
 	return res.status(200).send({"clientID": encryptedUserID});
 });
