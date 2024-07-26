@@ -12,7 +12,6 @@ router.get("/", async (req: Request, res: Response) => {
 	await redisClient.hgetall("stats")
 	.then(statsRes => {
 		let stats = statsRes;
-		
 		res.status(200).json(stats);
 	})
 	.catch(error => {
