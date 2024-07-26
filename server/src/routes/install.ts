@@ -43,16 +43,16 @@ router.get('/', validInstall, async (req: Request, res: Response) => {
   }
 
   // Store userID in database and return encyrpted userID alongside userNo|timestamp
-  // swap current usernumber to total install number
-  let currentUserCount = await redisClient.dbsize();
-  currentUserCount++;
-  let timestamp = new Date().getTime();
-  let dataString = `${currentUserCount}|${timestamp}`;
+  // Update currentUserCount and total install stats
+  await redisClient.hincrby("stats", "currentUsers", 1);
+  await redisClient.hincrby("stats", "totalInstalls", 1);
+  let installNo = await redisClient.hget("stats", "totalIntstalls");
 
-  // Add to current user count + total user count here
+  let timestamp = new Date().getTime();
+  let dataString = `${installNo}|${timestamp}`;
 
   await redisClient.set(encryptedClientID, dataString);
-  console.log(`New user initialised with encryptedClientID: ${encryptedClientID}`);
+  console.log(`New user initialised with eClientID: ${encryptedClientID}`);
   
 	return res.status(200).send({clientID: clientID});
 });

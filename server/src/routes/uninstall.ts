@@ -27,6 +27,12 @@ router.get("/", validInstall, async (req: Request, res: Response) => {
 			.catch(error => {
 				console.warn(`Error deleting clientID from database: ${error}`);
 				return res.status(500).send("An internal server error occurred");
+			});
+
+			redisClient.hincrby("stats", "currentUsers", -1)
+			.catch(error => {
+				console.warn(`Error updating stats: ${error}`);
+				return res.status(500).send("An internal server error occurred");
 			})
 		} else {
 			console.warn(`clientID recieved does not exist`);
@@ -39,8 +45,6 @@ router.get("/", validInstall, async (req: Request, res: Response) => {
       console.warn(`There was an error checking whether this key exists: ${clientID}`);
       res.status(500).send("An internal server error occurred");
     });
-
-    // Remove from current user count here
 
 });
 
