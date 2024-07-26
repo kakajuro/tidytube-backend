@@ -7,6 +7,7 @@ import { sha256 } from 'js-sha256';
 import generateUniqueID from "generate-unique-id";
 
 import dotenv from "dotenv";
+import { timeStamp } from "console";
 dotenv.config();
 
 const router = express.Router();
@@ -52,7 +53,7 @@ router.get('/', validInstall, async (req: Request, res: Response) => {
   let dataString = `${installNo}|${timestamp}`;
 
   await redisClient.set(encryptedClientID, dataString);
-  console.log(`New user initialised with eClientID: ${encryptedClientID}`);
+  console.log(`${timeStamp} New user created with eClientID: ${encryptedClientID}`);
   
 	return res.status(200).send({clientID: clientID});
 });

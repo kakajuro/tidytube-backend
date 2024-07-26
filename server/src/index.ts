@@ -7,6 +7,7 @@ import installRouter from "./routes/install";
 import uninstallRouter from "./routes/uninstall";
 import getInstallNoRouter from "./routes/getInstallNo";
 import statsRouter from "./routes/stats";
+import updateStatsRouter from "./routes/updateStats";
 
 import initDB from "./util/initDb";
 
@@ -38,6 +39,7 @@ app.use("/api/uninstall", uninstallRouter);
 app.use("/api/getInstallNo", getInstallNoRouter);
 
 app.use("/api/stats", statsRouter);
+app.use("/api/updateStats", updateStatsRouter);
 
 // Start server
 app.listen(port, () => {
