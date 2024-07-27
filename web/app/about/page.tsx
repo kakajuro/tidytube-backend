@@ -56,9 +56,8 @@ export default function About() {
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <h1 className="text-3xl font-semibold pb-6">contact details</h1>
-        <p>You contact me by email at </p>
+        <p>You contact me by email at kakajurothings@gmail.com</p>
         <p>Follow on twitter: </p>
-        <p>Join the discord server: ?</p>
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <Link href="credits" className="hover:cursor-pointer hover:underline font-bold">see credits here</Link>

@@ -9,7 +9,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { FaGithub } from "react-icons/fa";
-import { FaDiscord } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { MdClose } from "react-icons/md";
 
@@ -92,11 +91,11 @@ export default function Navbar() {
 
         <div className="flex items-center gap-4 flex-row">
           <div className="sm:flex sm:gap-4 md:gap-8">
+            <FaTwitter className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube twitter account" size={25}  />
             <Link href="https://github.com/kakajuro/tidytube" passHref target="_blank">
               <FaGithub className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="Extension Repository" size={25}  />  
             </Link>
-            <FaTwitter className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube twitter account" size={25}  />
-            <FaDiscord className="hidden md:block hover:cursor-pointer hover:text-red-600 transition ease-in-out" title="tidytube discord server" size={25}  />
+            
 
             <button
               className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"

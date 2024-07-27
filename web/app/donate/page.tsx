@@ -14,18 +14,24 @@ export default function page() {
         <h1 className="text-5xl font-semibold pb-8">donate</h1>
         <p className="font-medium text-xl pb-4">{donationMessage}</p>
         <p className="font-medium text-xl pb-4">{donationMessageTwo}</p>
-        <div className="flex flex-col pt-4 text-xl">
-          <h2 className="font-semibold text-3xl pb-6">recurring:</h2>
+        <div className="flex flex-col pt-6 text-xl">
+          <h2 className="font-semibold text-3xl pb-6">links:</h2>
           <ul>
-            <li>-Github</li>
-          </ul>
-        </div>
-        <div className="flex flex-col pt-12 text-xl">
-          <h2 className="font-semibold text-3xl pb-6">one-time:</h2>
-          <ul>
-            <li>-Github</li>
-            <li>-Ko-fi</li>
-            <li>-Paypal</li>
+            <li>
+              <Link className="hover:cursor-pointer hover:underline" href="https://github.com/sponsors/kakajuro" passHref target="_blank">
+              -Github
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:cursor-pointer hover:underline" href="https://ko-fi.com/kakajuro" passHref target="_blank">
+              -Kofi
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:cursor-pointer hover:underline" href="https://www.buymeacoffee.com/kakajuro" passHref target="_blank">
+              -buymeacoffee
+              </Link>
+            </li>
           </ul>
         </div>
       </div>

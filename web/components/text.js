@@ -10,7 +10,7 @@ The extension keeps track of the sections removed on each page and displays them
 `
 
 export const donationMessage = `
-I'm David (kakajuro), a first year university student and I've worked on the tidytube extension in my free time. 
+I'm David (kakajuro), a first year university student and I've worked on the tidytube extension in my free time. Your support would help me pay for the server costs as well as help me pay for university.
 `
 
 export const donationMessageTwo = `
