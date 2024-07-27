@@ -45,13 +45,32 @@ export default function NumberTicker({
     [springValue],
   );
 
-  return (
-    <span
-      className={cn(
-        "inline-block tracking-wider",
-        className,
-      )}
-      ref={ref}
-    />
-  );
+  if (value == 0) {
+    return (
+      <span
+        className={cn(
+          "inline-block tracking-wider",
+          className,
+        )}>0</span>
+    );
+  } else if (value == null) {
+    return (
+      <span
+        className={cn(
+          "inline-block tracking-wider",
+          className,
+        )}>-</span>
+    );
+  } else {
+    return (
+      <span
+        className={cn(
+          "inline-block tracking-wider",
+          className,
+        )}
+        ref={ref}
+      />
+    );
+  }
+
 }
