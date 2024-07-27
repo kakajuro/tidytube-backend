@@ -34,6 +34,10 @@ app.use(express.urlencoded({ extended: false }));
 initDB();
 
 // Routers
+app.get("/", async (req: Request, res: Response) => {
+  res.status(200).json({"status": "OK"});
+});
+
 app.use("/api/install", installRouter);
 app.use("/api/uninstall", uninstallRouter);
 app.use("/api/getInstallNo", getInstallNoRouter);
