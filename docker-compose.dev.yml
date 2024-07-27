@@ -60,5 +60,24 @@ services:
       - server/.env
     
 
+  # caddy (reverse proxy)
+  caddy:
+    container_name: caddy
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
+      - ./caddy/caddy_data:/data
+      - ./caddy/caddy_config:/config
+    networks:
+      - tidytube-dev
+    depends_on:
+      - web
+      - server
+
+
 networks:
   tidytube-dev:
