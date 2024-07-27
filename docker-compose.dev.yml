@@ -78,6 +78,10 @@ services:
       - web
       - server
 
+volumes:
+  ./caddy/caddy_data:
+    external: true
+  ./caddy/caddy_config:
 
 networks:
   tidytube-dev:

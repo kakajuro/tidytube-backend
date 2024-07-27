@@ -3,10 +3,12 @@
 }
 
 test.localhost {
+    tls internal
     encode gzip
     reverse_proxy web:3000
 }
 
 api.test.localhost {
+    tls internal
     reverse_proxy server:3000
 }
