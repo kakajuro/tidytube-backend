@@ -85,7 +85,7 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 		res.status(500).json("An internal server error occurred");
 	}
 
-	res.status(200).json("Stats updated sucessfully");
+	res.status(200).json({"message": "Stats updated sucessfully"});
 
 });
 

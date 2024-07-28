@@ -37,8 +37,8 @@ export async function getStats() {
   let apiURL;
 
   if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
-    apiURL = "http://server:3000" // If running with docker
-    // apiURL = "http://localhost:8000"
+    //apiURL = "http://server:3000" // If running with docker
+    apiURL = "http://localhost:8000" // If running locally
 
   } else {
     apiURL = serverRuntimeConfig.API_URL;
