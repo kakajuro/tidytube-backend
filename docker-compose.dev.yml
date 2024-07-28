@@ -30,7 +30,7 @@ services:
       target: dev
     restart: unless-stopped
     depends_on:
-      - redis
+      - db
     environment:
       - NODE_ENV=development
     volumes:
@@ -41,8 +41,8 @@ services:
       - tidytube-dev
 
   # DB
-  redis:
-    container_name: redis
+  db:
+    container_name: db
     image: redis:alpine
     restart: unless-stopped
     command: 
@@ -77,11 +77,6 @@ services:
     depends_on:
       - web
       - server
-
-volumes:
-  ./caddy/caddy_data:
-    external: true
-  ./caddy/caddy_config:
 
 networks:
   tidytube-dev:
