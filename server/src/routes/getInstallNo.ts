@@ -2,7 +2,7 @@ import express, { Request, Response } from "express";
 
 import redisClient from "../util/redisClient";
 
-import Crypto from "crypto-js";
+import { sha256 } from 'js-sha256';
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -13,11 +13,11 @@ router.get("/", async (req: Request, res: Response) => {
 
 	const clientIDSecret = process.env.CLIENTIDSECRET!;
 
-	const encryptedClientID = req.headers["client-id"]! as string;
+	const clientID = req.headers["client-id"]! as string;
 
-	let clientID = Crypto.AES.decrypt(encryptedClientID, clientIDSecret).toString(Crypto.enc.Utf8);
+	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
-	await redisClient.get(clientID)
+	await redisClient.get(encryptedClientID)
 	.then(dataString => {
 		let installNo = dataString?.split("|")[0];
 
@@ -25,7 +25,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 	})
 	.catch(error => {
-		console.warn(`There was an error checking whether this key exists: ${clientID}`);
+		console.warn(`There was an error checking whether this key exists: ${encryptedClientID}`);
       	res.status(500).send("An internal server error occurred");
 	})
 

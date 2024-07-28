@@ -12,7 +12,7 @@ export default async function validInstall(req: Request, res: Response, next: Ne
   const installKey = process.env.INSTALLKEY!;
   const installKeySecret = process.env.INSTALLKEYSECRET!;
 
-  const incomingInstallKey = req.headers["incoming-install-key"];
+  const incomingInstallKey = req.headers["install-key"];
 
   const hashedInstallKey = sha256.hmac(installKeySecret, installKey);
 
