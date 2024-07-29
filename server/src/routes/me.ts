@@ -20,8 +20,9 @@ router.get("/", async (req: Request, res: Response) => {
 	await redisClient.get(encryptedClientID)
 	.then(dataString => {
 		let installNo = dataString?.split("|")[0];
+    let timestamp = dataString?.split("|")[1];
 
-		return res.status(200).json({installNo: installNo});
+		return res.status(200).json({installNo: installNo, timestamp: timestamp});
 
 	})
 	.catch(error => {

@@ -5,7 +5,7 @@ import morgan from "morgan";
 
 import installRouter from "./routes/install";
 import uninstallRouter from "./routes/uninstall";
-import getInstallNoRouter from "./routes/getInstallNo";
+import meRouter from "./routes/me";
 import statsRouter from "./routes/stats";
 import updateStatsRouter from "./routes/updateStats";
 
@@ -41,7 +41,7 @@ app.get("/", async (req: Request, res: Response) => {
 
 app.use("/api/install", installRouter);
 app.use("/api/uninstall", uninstallRouter);
-app.use("/api/getInstallNo", getInstallNoRouter);
+app.use("/api/me", meRouter);
 
 app.use("/api/stats", statsRouter);
 app.use("/api/updateStats", updateStatsRouter);
