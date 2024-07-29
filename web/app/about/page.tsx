@@ -57,6 +57,7 @@ export default function About() {
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <h1 className="text-3xl font-semibold pb-6">contact details</h1>
         <p>You contact me by email at kakajurothings@gmail.com</p>
+        <p>My discord: @kakajuro</p>
         <p>Follow on twitter: <a className="hover:underline hover:cursor-pointer" href="https://twitter.com/tidytubeext">@tidytubeext</a></p>
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
