@@ -29,7 +29,7 @@ interface StatsData {
 
   "currentUsers": number,
   "totalInstalls": number,
-  "totalSectionsRemoved": number
+  "sectionsRemovedTotal": number
 }
 
 export async function getStats() {
@@ -41,7 +41,7 @@ export async function getStats() {
   } else {
     apiURL = serverRuntimeConfig.API_URL;
   }
-  
+
   let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }});
   let jsonRes:StatsData = await res.json();
 

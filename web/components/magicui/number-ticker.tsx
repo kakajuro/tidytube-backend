@@ -59,7 +59,7 @@ export default function NumberTicker({
         className={cn(
           "inline-block tracking-wider",
           className,
-        )}>-</span>
+        )}>---</span>
     );
   } else {
     return (

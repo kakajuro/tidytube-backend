@@ -8,7 +8,7 @@ import { getStats } from "@/app/actions";
 
 export default async function Stats() {
 
-  const { totalSectionsRemoved, currentUsers, totalInstalls } = await getStats();
+  const { sectionsRemovedTotal, currentUsers, totalInstalls } = await getStats();
 
   return (
     <section className="flex flex-col w-screen min-h-screen justify-center text-center">
@@ -24,7 +24,7 @@ export default async function Stats() {
             <div className="flex flex-col px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium">Sections Removed</dt>
               <dd className="text-4xl font-extrabold text-red-600 md:text-5xl">
-                <NumberTicker value={totalSectionsRemoved} compact />
+                <NumberTicker value={sectionsRemovedTotal} compact />
               </dd>
             </div>
             <div className="flex flex-col px-4 py-8 text-center">
