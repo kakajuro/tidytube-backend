@@ -6,7 +6,7 @@ RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
 COPY package.json yarn.lock* package-lock.json* pnpm-lock.yaml* ./
-RUN yarn --frozen-lockfile
+RUN yarn --frozen-lockfile --network-timeout 100000
 
 
 FROM base AS dev

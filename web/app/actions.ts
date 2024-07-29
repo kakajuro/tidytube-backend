@@ -36,14 +36,12 @@ export async function getStats() {
 
   let apiURL;
 
-  if (process.env.NODE_ENV === "development" || process.env.NODE_ENV === "test") {
-    //apiURL = "http://server:3000" // If running with docker
-    apiURL = "http://localhost:8000" // If running locally
-
+  if (process.env.NODE_ENV === "development") {
+    process.env.IS_DOCKERISED ? apiURL = "http://server:3000" : apiURL = "http://localhost:8000"
   } else {
     apiURL = serverRuntimeConfig.API_URL;
   }
-
+  
   let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }});
   let jsonRes:StatsData = await res.json();
 
