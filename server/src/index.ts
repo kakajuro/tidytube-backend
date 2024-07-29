@@ -10,6 +10,7 @@ import statsRouter from "./routes/stats";
 import updateStatsRouter from "./routes/updateStats";
 
 import initDB from "./util/initDb";
+import redisClient from "./util/redisClient";
 
 import dotenv from "dotenv";
 dotenv.config();
@@ -49,4 +50,26 @@ app.use("/api/updateStats", updateStatsRouter);
 // Start server
 app.listen(port, () => {
   console.log(`[server]: Server running on PORT: ${port}...`);
+});
+
+// Listen to redis errors
+redisClient.on("error", async (err) => {
+  if (err.name === "ECONNREFUSED") {
+    console.warn(`Could not connect to Redis: ${err.message}.`);
+    
+    try {
+      await redisClient.connect();
+    } catch (error) {
+      console.warn(`Redis could not recconect: ${error}`);
+    }
+
+  } else if (err.name === "MaxRetriesPerRequestError") {
+    console.warn(`Critical Redis error: ${err.message}. Shutting down.`);
+  } else {
+    console.warn(`Redis encountered an error: ${err.message}.`);
+  }
+});
+
+redisClient.on("connect", async () => {
+  console.log("Redis connected successfully");
 });
