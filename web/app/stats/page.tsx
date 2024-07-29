@@ -14,7 +14,7 @@ export default async function page() {
           <h2 className="text-2xl font-semibold pb-4 underline">Overall stats:</h2>
           <p>Total downloads: {data?.totalInstalls}</p>
           <p>Current number of users: {data?.currentUsers}</p>
-          <p>Total sections removed: {data?.totalSectionsRemoved}</p>
+          <p>Total sections removed: {data?.sectionsRemovedTotal}</p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">General:</h2>
