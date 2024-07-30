@@ -54,7 +54,7 @@ services:
       - 80:80
       - 443:443
     volumes:
-      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/caddy_data:/data
       - ./caddy/caddy_config:/config
     networks:
@@ -62,6 +62,8 @@ services:
     depends_on:
       - web
       - server
+    env_file:
+      - ./caddy/.env
 
 
 networks:
