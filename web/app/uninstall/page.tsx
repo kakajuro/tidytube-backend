@@ -4,6 +4,13 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { redirect } from "next/navigation";
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Uninstall - tidytube"
+}
+
+
 export default async function page() {
 
   const searchParams = useSearchParams();

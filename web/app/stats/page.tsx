@@ -2,6 +2,13 @@ export const dynamic = "force-dynamic";
 
 import { getStats } from "../actions"
 
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Stats - tidytube"
+}
+
+
 export default async function page() {
 
   const data = await getStats();
