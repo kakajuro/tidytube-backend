@@ -13,7 +13,7 @@ import initDB from "./util/initDb";
 import redisClient from "./util/redisClient";
 
 import dotenv from "dotenv";
-import { rateLimiter } from "./util/rateLimiter";
+import { generalLimiter, burstLimiter } from "./util/rateLimiter";
 dotenv.config();
 
 const port = process.env.PORT;
@@ -31,7 +31,8 @@ if (env == "development") {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(rateLimiter);
+app.use(generalLimiter);
+app.use(burstLimiter);
 app.set("trust proxy", 1);
 
 // Setup db

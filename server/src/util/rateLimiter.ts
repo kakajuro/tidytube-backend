@@ -3,7 +3,7 @@ import requestIp from "request-ip";
 
 import { sha256 } from 'js-sha256';
 
-export const rateLimiter = rateLimit({
+export const generalLimiter = rateLimit({
   windowMs: 1* 60 * 1000,
   limit: 30,
   message: {message: "Too many requests, please try again later"},
@@ -15,4 +15,18 @@ export const rateLimiter = rateLimit({
 
     return sha256(clientIP!);
   }
-})
+});
+
+export const burstLimiter = rateLimit({
+  windowMs: 1 * 1000,
+  limit: 8,
+  message: {message: "Too many requests, please try again later"},
+  keyGenerator: (req) => {
+    let actualClientIP;
+    let clientIP = requestIp.getClientIp(req);
+
+    !clientIP ? actualClientIP = req.socket.remoteAddress : actualClientIP = clientIP;
+
+    return sha256(clientIP!);
+  }
+});
