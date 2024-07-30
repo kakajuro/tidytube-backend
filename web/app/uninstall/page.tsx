@@ -4,14 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { redirect } from "next/navigation";
 
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Uninstall - tidytube"
-}
-
-
-export default async function page() {
+export default async function Page() {
 
   const searchParams = useSearchParams();
 
@@ -27,7 +20,7 @@ export default async function page() {
     if (process.env.NODE_ENV === "development") {
       process.env.IS_DOCKERISED ? apiURL = "http://server:3000" : apiURL = "http://localhost:8000"
     } else {
-      apiURL = process.env.NEXT_PUBLIC_API_URL;
+      apiURL = `https://${process.env.NEXT_PUBLIC_API_URL}`;
     }
 
     let res = await fetch(`${apiURL}/api/uninstall` ,{
@@ -44,14 +37,13 @@ export default async function page() {
       console.log("Failed to uninstall user");
       redirect("./");
     } else {
-      console.log(await res.json());
       console.log("Succuessfully uninstalled user");
         return (
         <div className="grid h-screen place-content-center px-4">
           <div className="text-center items-center justify-center">
             <h1 className="text-7xl font-bold text-gray-200 pb-8">tidytube uninstalled :(</h1>
     
-            <p className="text-2xl font-bold tracking-tight text-red-600 sm:text-4xl pb-6">We're sorry to see you go.</p>
+            <p className="text-2xl font-bold tracking-tight text-red-600 sm:text-4xl pb-6">We&apos;re sorry to see you go.</p>
     
             <p className="mt-4 text-gray-500 pb-8">Extension uninstalled + server data deleted successfully, thank you for using tidytube.</p>
     

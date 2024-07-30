@@ -1,14 +1,12 @@
-export const dynamic = "force-dynamic";
-
 import Link from "next/link";
 
 import NumberTicker from "./magicui/number-ticker";
 
-import { getStats } from "@/app/actions";
+import { getStats, StatsData } from "@/app/actions";
 
 export default async function Stats() {
 
-  const { sectionsRemovedTotal, currentUsers, totalInstalls } = await getStats();
+  const data:StatsData = await getStats();
 
   return (
     <section className="flex flex-col w-screen min-h-screen justify-center text-center">
@@ -24,19 +22,19 @@ export default async function Stats() {
             <div className="flex flex-col px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium">Sections Removed</dt>
               <dd className="text-4xl font-extrabold text-red-600 md:text-5xl">
-                <NumberTicker value={sectionsRemovedTotal} compact />
+                <NumberTicker value={data?.sectionsRemovedTotal} compact />
               </dd>
             </div>
             <div className="flex flex-col px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium">Current Users</dt>
               <dd className="text-4xl font-extrabold text-red-600 md:text-5xl">
-                <NumberTicker value={currentUsers} compact />
+                <NumberTicker value={data?.currentUsers} compact />
               </dd>
             </div>
             <div className="flex flex-col px-4 py-8 text-center">
               <dt className="order-last text-lg font-medium">Total installs</dt>
               <dd className="text-4xl font-extrabold text-red-600 md:text-5xl">
-                <NumberTicker value={totalInstalls} compact />
+                <NumberTicker value={data?.totalInstalls} compact />
               </dd>
             </div>
           </dl>

@@ -9,7 +9,7 @@ export default function Custom404() {
 
         <p className="text-2xl font-bold tracking-tight text-red-600 sm:text-4xl">Whoops.</p>
 
-        <p className="mt-4 text-gray-500">We couldn't find that page</p>
+        <p className="mt-4 text-gray-500">We couldn&apos;t find that page</p>
 
         <Link
           href="./"

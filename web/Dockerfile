@@ -26,6 +26,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN yarn build

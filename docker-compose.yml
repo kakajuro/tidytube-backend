@@ -1,0 +1,68 @@
+# Compose file for production
+
+services:
+  # Site
+  web:
+    container_name: web
+    build:
+      context: web
+      dockerfile: Dockerfile
+      target: runner
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - web/.env.local
+    networks:
+      - tidytube-prod
+
+  # Server
+  server:
+    container_name: server
+    build:
+      context: server
+      dockerfile: Dockerfile
+      target: runner
+    restart: unless-stopped
+    depends_on:
+      - db
+    environment:
+      - NODE_ENV=production
+    networks:
+      - tidytube-prod
+  
+  # Database
+  db:
+    container_name: db
+    image: redis:alpine
+    restart: unless-stopped
+    command: sh -c "redis-server /usr/local/etc/redis/redis.conf --requirepass $$REDIS_PASSWORD"
+    volumes:
+      - ./redis/redis-data:/data
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    env_file:
+      - server/.env
+    networks:
+      - tidytube-prod
+  
+  # Caddy reverse proxy
+  caddy:
+    container_name: caddy
+    image: caddy:2-alpine
+    restart: unless-stopped
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./caddy/Caddyfile.dev:/etc/caddy/Caddyfile
+      - ./caddy/caddy_data:/data
+      - ./caddy/caddy_config:/config
+    networks:
+      - tidytube-prod
+    depends_on:
+      - web
+      - server
+
+
+networks:
+  tidytube-prod:

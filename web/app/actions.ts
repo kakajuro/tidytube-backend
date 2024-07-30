@@ -1,6 +1,6 @@
 "use server";
 
-interface StatsData {
+export interface StatsData {
   "removeAdCompanionSlots": number,
   "removeAdsFromReccomendations": number,
   "removeFeaturedBanners": number,
@@ -35,7 +35,7 @@ export async function getStats() {
   if (process.env.NODE_ENV === "development") {
     process.env.IS_DOCKERISED ? apiURL = "http://server:3000" : apiURL = "http://localhost:8000"
   } else {
-    apiURL = process.env.NEXT_PUBLIC_API_URL;
+    apiURL = `https://${process.env.NEXT_PUBLIC_API_URL}`;
   }
 
   let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }});
