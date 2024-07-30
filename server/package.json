@@ -2,8 +2,9 @@
   "name": "tidytube-server",
   "version": "1.0.0",
   "description": "Server side portion for tidytube",
+  "type": "module",
   "scripts": {
-    "build": "npx tsc",
+    "build": "babel -x .ts -d dist src",
     "start": "node dist/index.js",
     "dev": "nodemon -L src/index.ts"
   },
@@ -23,14 +24,20 @@
     "request-ip": "^3.3.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.2",
+    "@babel/preset-typescript": "^7.24.7",
     "@types/cors": "^2.8.17",
     "@types/crypto-js": "^4.2.2",
     "@types/express": "^4.17.21",
     "@types/morgan": "^1.9.9",
     "@types/node": "^20.14.11",
     "@types/request-ip": "^0.0.41",
+    "babel-plugin-add-import-extension": "^1.6.0",
     "concurrently": "^8.2.2",
     "nodemon": "^3.1.4",
+    "npm-run-all": "^4.1.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.3"
   }

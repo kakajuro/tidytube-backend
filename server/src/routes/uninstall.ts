@@ -1,6 +1,5 @@
 import express, { Request, Response } from "express";
 
-import validInstall from "../middleware/validInstall";
 import redisClient from "../util/redisClient";
 
 import { sha256 } from 'js-sha256';

@@ -23,7 +23,10 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 CMD ["yarn", "build"]
 
-FROM base as runner
+FROM base AS runner
 WORKDIR /app
+COPY package.json .
+COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-CMD ["yarn", "start"]
+COPY .env /app
+CMD ["node", "dist/index.js"]
