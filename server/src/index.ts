@@ -52,7 +52,7 @@ app.use("/api/updateStats", updateStatsRouter);
 
 // Start server
 app.listen(port, () => {
-  console.log(`[server]: Server running on PORT: ${port}...`);
+  console.log(`[server]: Server running on ORT: ${port}...`);
 });
 
 // Listen to redis errors

@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
+    "esModuleInterop": true,
     "allowJs": false,
     "checkJs": false,
-    "declaration": true,
-    "declarationMap": true,
-    "emitDeclarationOnly": true,
+    "declaration": false,
     "lib": ["ES2022"],
     "module": "ES2022",
     "moduleResolution": "Bundler",
     "sourceMap": true,
     "target": "ES2022"
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
 }
