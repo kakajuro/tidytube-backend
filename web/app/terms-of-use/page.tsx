@@ -12,10 +12,14 @@ export default function page() {
         <h1 className="text-5xl font-semibold pb-8">terms of use</h1>
         <ul className="text-xl">
           <li className="pb-4">
-            -By using the extension, you agree to the <Link className="hover:underline hover:cursor-pointer" href="privacy-policy">Privacy Policy</Link>
+            -By using the extension and/or API, you agree to the <Link className="hover:underline hover:cursor-pointer" href="privacy-policy">Privacy Policy</Link>
           </li>
           <li className="pb-4">
             -You can be removed from the service if we see a sufficient reason to do so
+          </li>
+          <li className="pb-4">
+            -The data stored about what tidytube has removed will stay in the database if you do decide to leave the service. 
+            Find out more about what is stored in the <Link className="hover:underline hover:cursor-pointer" href="privacy-policy">Privacy Policy</Link>
           </li>
         </ul>
       </div>
