@@ -13,6 +13,11 @@ www.{$DOMAIN_NAME:domain.invalid} {
     redir https://{$DOMAIN_NAME}{uri} permanent
 }
 
+analytics.{$DOMAIN_NAME:domain.invalid} {
+  encode gzip
+    reverse_proxy umami:3000
+}
+
 api.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy server:3000
 

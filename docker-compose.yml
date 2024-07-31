@@ -45,7 +45,7 @@ services:
     networks:
       - tidytube-prod
   
-  # Caddy reverse proxy
+  # Caddy (reverse proxy)
   caddy:
     container_name: caddy
     image: caddy:2-alpine
@@ -62,9 +62,45 @@ services:
     depends_on:
       - web
       - server
+      - umami
     env_file:
       - ./caddy/.env
 
+  # Umami (website analytics)
+  umami:
+    container_name: umami
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    ports:
+      - "3000:3000"
+    depends_on:
+      umami_db:
+        condition: service_healthy
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "curl http://localhost:3000/api/heartbeat"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    env_file: 
+      - ./umami/.env
+    networks:
+      - tidytube-prod
+  umami_db:
+    container_name: umami_db
+    image: postgres:15-alpine
+    volumes:
+      - ./umami/umami-db-data:/var/lib/postgresql/data
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    env_file: 
+      - ./umami/.env
+    networks:
+      - tidytube-prod
 
 networks:
   tidytube-prod:
+    name: tidytube-prod

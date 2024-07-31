@@ -137,3 +137,4 @@ redis/redis-data/*
 
 caddy/caddy_config/*
 caddy/caddy_data/*
+umami/umami-db-data/*
