@@ -29,7 +29,6 @@ interface PageChangeData {
     "removeShortsExplore": number,
     "removeShortsFromChannel": number,
     "removeShortsFromSearch": number,
-    "removeShortsFromSite": number,
     "removeShortsPlayback": number,
     "removeShortsRemixingThisVideo": number,
     "removeShortsWhileWatching": number
@@ -70,7 +69,6 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 		await redisClient.hincrby("stats", "removeShortsExplore", incomingStats.removeShortsExplore);
 		await redisClient.hincrby("stats", "removeShortsFromChannel", incomingStats.removeShortsFromChannel);
 		await redisClient.hincrby("stats", "removeShortsFromSearch", incomingStats.removeShortsFromSearch);
-		await redisClient.hincrby("stats", "removeShortsFromSite", incomingStats.removeShortsFromSite);
 		await redisClient.hincrby("stats", "removeShortsPlayback", incomingStats.removeShortsPlayback);
 		await redisClient.hincrby("stats", "removeShortsRemixingThisVideo", incomingStats.removeShortsRemixingThisVideo);
 		await redisClient.hincrby("stats", "removeShortsWhileWatching", incomingStats.removeShortsWhileWatching);

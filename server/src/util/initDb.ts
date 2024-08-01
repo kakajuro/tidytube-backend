@@ -7,7 +7,6 @@ export default async function initDB() {
 	.then(exists => {
 		if (!exists) {
 			redisClient.hset("stats", "removeShortsFromSearch", 0);
-			redisClient.hset("stats", "removeShortsFromSite", 0);
 			redisClient.hset("stats", "removeShortsPlayback", 0);
 			redisClient.hset("stats", "removeShortsRemixingThisVideo", 0);
 			redisClient.hset("stats", "removeShortsWhileWatching", 0);

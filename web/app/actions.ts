@@ -18,7 +18,6 @@ export interface StatsData {
   "removeShortsExplore": number,
   "removeShortsFromChannel": number,
   "removeShortsFromSearch": number,
-  "removeShortsFromSite": number,
   "removeShortsPlayback": number,
   "removeShortsRemixingThisVideo": number,
   "removeShortsWhileWatching": number,

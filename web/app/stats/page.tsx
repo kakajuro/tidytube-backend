@@ -37,7 +37,7 @@ export default async function page() {
           <p>Shorts removed from search page: {data?.removeShortsFromSearch}</p>
           <p>Shorts removed from channel pages: {data?.removeShortsFromChannel}</p>
           <p>Shorts prevented from playing: {data?.removeShortsPlayback}</p>
-          <p>Shorts removed from the site: {data?.removeShortsFromSite}</p>
+          <p>Shorts removed from the homepage: {data?.removeShortsExplore}</p>
           <p>Shorts removed from watch next reccomendations: {data?.removeShortsWhileWatching}</p>
           <p><em>Shorts Remixing This Video</em> sections removed: {data?.removeShortsRemixingThisVideo}</p>
         </div>
