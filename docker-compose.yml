@@ -101,6 +101,19 @@ services:
     networks:
       - tidytube-prod
 
+  # Statping for uptime stats
+  statping:
+    container_name: statping
+    image: adamboutcher/statping-ng
+    restart: unless-stopped
+    volumes:
+      - ./statping:/app
+    environment:
+      DB_CONN: sqlite
+    networks:
+      - tidytube-prod
+
+
 networks:
   tidytube-prod:
     name: tidytube-prod

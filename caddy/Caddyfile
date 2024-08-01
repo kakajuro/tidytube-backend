@@ -15,8 +15,18 @@ www.{$DOMAIN_NAME:domain.invalid} {
 
 analytics.{$DOMAIN_NAME:domain.invalid} {
   encode gzip
-    reverse_proxy umami:3000
+  reverse_proxy umami:3000
 }
+
+status.{$DOMAIN_NAME:domain.invalid} {
+  encode gzip
+  reverse_proxy statping:8080
+}
+
+ok.{$DOMAIN_NAME:domain.invalid} {
+  respond /health-check 200
+}
+
 
 api.{$DOMAIN_NAME:domain.invalid} {
     reverse_proxy server:3000
@@ -30,6 +40,8 @@ api.{$DOMAIN_NAME:domain.invalid} {
         X-Frame-Options DENY
 
         X-XSS-Protection "1; mode=block"
+
+        Cache-Control no-cache
     }
   
 }
