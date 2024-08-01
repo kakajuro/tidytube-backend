@@ -12,6 +12,10 @@ export const metadata: Metadata = {
 export default async function page() {
 
   const data = await getStats();
+  // @ts-expect-error Typed as numbers in the StatsData interface but are treated as strings when added together
+  let totalShortsSections = parseInt(data?.removeShortsExplore) + parseInt(data?.removeShortsFromChannel) + parseInt(data?.removeShortsFromSearch) + parseInt(data?.removeShortsPlayback) + parseInt(data?.removeShortsRemixingThisVideo) + parseInt(data?.removeShortsWhileWatching);
+  // @ts-expect-error Typed as numbers in the StatsData interface but are treated as strings when added together
+  let totalSearchSections = parseInt(data?.removeNewChannelsFromSearch) + parseInt(data?.removeLatestPostsFromSearch) + parseInt(data?.removeLatestVideosFromSearch) + parseInt(data?.removeLatestVideosFromSearch) + parseInt(data?.removePreviouslyWatchedFromSearch) + parseInt(data?.removeForYouFromSearch) + parseInt(data?.removePeopleAlsoWatchedFromSearch) + parseInt(data?.removeFromRelatedSearches) + parseInt(data?.removePeopleAlsoSearchFor);
 
   return (
     <main className="flex flex-col items-center min-h-screen w-screen p-12">
@@ -40,6 +44,7 @@ export default async function page() {
           <p>Shorts removed from the homepage: {data?.removeShortsExplore}</p>
           <p>Shorts removed from watch next reccomendations: {data?.removeShortsWhileWatching}</p>
           <p><em>Shorts Remixing This Video</em> sections removed: {data?.removeShortsRemixingThisVideo}</p>
+          <p>Total shorts removed: {totalShortsSections}</p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">Search:</h2>
@@ -51,6 +56,7 @@ export default async function page() {
           <p><em>People Also Watched</em> sections removed: {data?.removePeopleAlsoWatchedFromSearch}</p>
           <p><em>From Related Searches</em> sections removed: {data?.removeFromRelatedSearches}</p>
           <p><em>People Also Search For</em> sections removed: {data?.removePeopleAlsoSearchFor}</p>
+          <p>Total search sections removed: {totalSearchSections}</p>
         </div>
       </div>
     </main>
