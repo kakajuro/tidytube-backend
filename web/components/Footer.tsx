@@ -8,7 +8,7 @@ export default function Footer() {
   return (
     <footer>
       <div className="mx-auto max-w-5xl px-4 pt-16 sm:px-6 lg:px-8">
-        <div className="flex flex-row items-center justify-center text-red-700 select-none">
+        <div className="flex flex-row items-center justify-center text-[#ff0000] select-none">
           <Image src={tidytubeIcon} alt="tidytube icon" />
           <h1 className="pl-4 text-3xl font-semibold">tidytube</h1>
         </div>
