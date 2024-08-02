@@ -38,6 +38,11 @@ export default function About() {
             </Link>
           </li>
           <li>
+            <Link className="hover:cursor-pointer hover:underline" href="https://returnyoutubedislike.com/" passHref target="_blank">
+              -ReturnYoutubeDislike
+            </Link>
+          </li>
+          <li>
             <Link className="hover:cursor-pointer hover:underline" href="https://ublockorigin.com/" passHref target="_blank">
               -uBlock Origin
             </Link>
