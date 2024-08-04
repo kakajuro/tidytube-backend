@@ -1,8 +1,4 @@
 # Production Caddyfile
-{
-  email $EMAIL
-}
-
 
 {$DOMAIN_NAME:domain.invalid} {
   encode gzip
