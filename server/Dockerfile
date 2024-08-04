@@ -4,6 +4,7 @@ FROM base as deps
 WORKDIR /app
 RUN apk add --no-cache libc6-compat
 COPY package.json yarn.lock ./
+COPY .env ./
 
 RUN yarn --frozen-lockfile
 
@@ -28,5 +29,5 @@ WORKDIR /app
 COPY package.json .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/.env /app
+COPY .env /app
 CMD ["node", "dist/index.js"]
