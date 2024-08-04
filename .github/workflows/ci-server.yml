@@ -27,8 +27,7 @@ jobs:
     - name: Build and publish new server image
       uses: docker/build-push-action@v6
       with: 
+        github-token: ${{ secrets.GITHUB_TOKEN }}
         context: server
         tags: kakajuro/tidytube-server:latest
-        push: true    
-
-    
+        push: true  
