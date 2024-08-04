@@ -22,12 +22,11 @@ jobs:
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.CONTAINER_TOKEN }}
     
     - name: Build and publish new server image
       uses: docker/build-push-action@v6
       with: 
-        github-token: ${{ secrets.GITHUB_TOKEN }}
         context: server
         tags: kakajuro/tidytube-server:latest
         push: true  
