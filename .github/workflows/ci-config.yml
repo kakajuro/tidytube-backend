@@ -16,5 +16,5 @@ jobs:
 
     steps:
       - name: Alert CD action
-        run: Config changed so alert CD action
+        run: echo Config changed so alert CD action
 
