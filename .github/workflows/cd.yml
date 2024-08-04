@@ -8,7 +8,7 @@ on:
 
   workflow_dispatch:
 
-
+    
 jobs:
   cd:
 
@@ -27,5 +27,4 @@ jobs:
           key: ${{ secrets.PASSWORD }}
           script: |
             cd var/www/tidytube-backend
-            echo On the VPS
-            ls -a
+            ./deploy.sh
