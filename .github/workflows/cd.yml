@@ -1,0 +1,31 @@
+name: cd
+
+on:
+  workflow_run: 
+    workflows: ["ci-web", "ci-server"]
+    types:
+      - completed
+
+  workflow_dispatch:
+
+
+jobs:
+  cd:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: SSH into VPS
+        uses: appleboy/ssh-action@master
+        with: 
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          password: $${{ secrets.PASSWORD }}
+          script: |
+            cd var/www/tidytube-backend
+            echo On the VPS
+            ls -a
