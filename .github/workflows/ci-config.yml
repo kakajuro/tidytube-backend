@@ -1,0 +1,18 @@
+name: ci-config
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "./docker-compose.yml"
+      - "deploy.sh"
+
+jobs:
+  alert_cd_action:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Alert CD action
+        run: Config changed so alert CD action
+

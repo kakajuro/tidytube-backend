@@ -2,7 +2,7 @@ name: cd
 
 on:
   workflow_run: 
-    workflows: ["ci-web", "ci-server"]
+    workflows: ["ci-web", "ci-server", "ci-config"]
     types:
       - completed
 
