@@ -28,5 +28,5 @@ WORKDIR /app
 COPY package.json .
 COPY --from=deps /app/node_modules ./node_modules
 COPY --from=builder /app/dist ./dist
-COPY .env /app
+COPY --from=builder .env /app
 CMD ["node", "dist/index.js"]
