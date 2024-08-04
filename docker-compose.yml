@@ -4,10 +4,7 @@ services:
   # Site
   web:
     container_name: web
-    build:
-      context: web
-      dockerfile: Dockerfile
-      target: runner
+    image: ghcr.io/kakajuro/tidytube-web:latest
     restart: unless-stopped
     environment:
       - NODE_ENV=production

@@ -15,6 +15,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 ENV NODE_ENV=development
+
 # Allows hot reload to work on windows
 ENV WATCHPACK_POLLING=TRUE
 
@@ -28,6 +29,10 @@ COPY . .
 
 ENV NEXT_SHARP_PATH=/app/node_modules/sharp
 ENV NEXT_TELEMETRY_DISABLED=1
+
+# Environment vars from docker-compose:
+ENV NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+ENV NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
 
 RUN yarn build
 
