@@ -28,5 +28,5 @@ jobs:
       uses: docker/build-push-action@v6
       with: 
         context: server
-        tags: kakajuro/tidytube-server:latest
+        tags: ghcr.io/kakajuro/tidytube-server:latest
         push: true  
