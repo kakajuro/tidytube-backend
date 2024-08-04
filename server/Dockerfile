@@ -21,7 +21,7 @@ FROM base as builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-CMD ["yarn", "build"]
+RUN yarn build
 
 FROM base AS runner
 WORKDIR /app
