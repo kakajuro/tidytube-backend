@@ -29,6 +29,11 @@ export default function About() {
           />
         </div>
       </div>
+      <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
+        <h1 className="text-3xl font-semibold pb-6">other services</h1>
+        <p>Check the status of all the services at <Link className="hover:cursor-pointer hover:underline" href="https://status.tidytube.app" target="_blank">status.tidytube.app</Link></p>
+        <p>API available at <Link className="hover:cursor-pointer hover:underline" href="https://api.tidytube.app" target="_blank">api.tidytube.app</Link> but only some routes are public</p>
+      </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12">
         <h1 className="text-3xl font-semibold pb-6">works best with:</h1>
         <ul className="text-xl">
