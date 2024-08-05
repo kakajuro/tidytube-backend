@@ -37,13 +37,24 @@ export async function getStats() {
     apiURL = `https://${process.env.NEXT_PUBLIC_API_URL}`;
   }
 
-  let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }});
-
-  if (!res.ok) {
+  let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }})
+  .then(res => {
+    return res.json();
+  })
+  .then(jsonRes => {
+    let returnData:StatsData = jsonRes;
+    return returnData
+  })
+  .catch(err => {
+    console.log(`An error occurred fetching the data: ${err}`);
     return null
-  }
+  })
 
-  let jsonRes:StatsData = await res.json();
-  return jsonRes;
+  // if (!res.ok) {
+  //   return null
+  // }
+
+  // let jsonRes:StatsData = await res.json();
+  return res;
 
 }

@@ -23,40 +23,40 @@ export default async function page() {
         <h1 className="text-5xl font-semibold pb-8">stats</h1>
         <div className="text-xl">
           <h2 className="text-2xl font-semibold pb-4 underline">Overall stats:</h2>
-          <p>Total downloads: {data?.totalInstalls}</p>
-          <p>Current number of users: {data?.currentUsers}</p>
-          <p>Total sections removed: {data?.sectionsRemovedTotal}</p>
+          <p>Total downloads: {data?.totalInstalls || "Data not found"}</p>
+          <p>Current number of users: {data?.currentUsers || "Data not found"}</p>
+          <p>Total sections removed: {data?.sectionsRemovedTotal || "Data not found"}</p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">General:</h2>
-          <p>Ads removed from reccomendations: {data?.removeAdsFromReccomendations}</p>
-          <p>Featured banners removed: {data?.removeFeaturedBanners}</p>
-          <p>Popups removed: {data?.removePopups}</p>
-          <p>Add companions removed: {data?.removeAdCompanionSlots}</p>
-          <p><em>For You</em> sections removed from channel pages: {data?.removeForYouFromChannel}</p>
-          <p>News sections removed: </p>
+          <p>Ads removed from reccomendations: {data?.removeAdsFromReccomendations || "Data not found"}</p>
+          <p>Featured banners removed: {data?.removeFeaturedBanners || "Data not found"}</p>
+          <p>Popups removed: {data?.removePopups || "Data not found"}</p>
+          <p>Add companions removed: {data?.removeAdCompanionSlots || "Data not found"}</p>
+          <p><em>For You</em> sections removed from channel pages: {data?.removeForYouFromChannel || "Data not found"}</p>
+          <p>News sections removed: {data?.removeNews || "Data not found"}</p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">Shorts:</h2>
-          <p>Shorts removed from search page: {data?.removeShortsFromSearch}</p>
-          <p>Shorts removed from channel pages: {data?.removeShortsFromChannel}</p>
-          <p>Shorts prevented from playing: {data?.removeShortsPlayback}</p>
-          <p>Shorts removed from the homepage: {data?.removeShortsExplore}</p>
-          <p>Shorts removed from watch next reccomendations: {data?.removeShortsWhileWatching}</p>
-          <p><em>Shorts Remixing This Video</em> sections removed: {data?.removeShortsRemixingThisVideo}</p>
-          <p>Total shorts removed: {totalShortsSections}</p>
+          <p>Shorts removed from search page: {data?.removeShortsFromSearch || "Data not found"}</p>
+          <p>Shorts removed from channel pages: {data?.removeShortsFromChannel || "Data not found"}</p>
+          <p>Shorts prevented from playing: {data?.removeShortsPlayback || "Data not found"}</p>
+          <p>Shorts removed from the homepage: {data?.removeShortsExplore || "Data not found"}</p>
+          <p>Shorts removed from watch next reccomendations: {data?.removeShortsWhileWatching || "Data not found"}</p>
+          <p><em>Shorts Remixing This Video</em> sections removed: {data?.removeShortsRemixingThisVideo || "Data not found"}</p>
+          <p>Total shorts removed: {totalShortsSections || "Data not found"}</p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">Search:</h2>
-          <p><em>Channels New To You</em> sections removed: {data?.removeNewChannelsFromSearch}</p>
-          <p><em>Latest Posts From ...</em> sections removed: {data?.removeLatestPostsFromSearch}</p>
-          <p><em>Latest Videos From </em> sections removed: {data?.removeLatestVideosFromSearch}</p>
-          <p><em>Previously Watched</em> sections removed: {data?.removePreviouslyWatchedFromSearch}</p>
-          <p><em>For You</em> sections removed: {data?.removeForYouFromSearch}</p>
-          <p><em>People Also Watched</em> sections removed: {data?.removePeopleAlsoWatchedFromSearch}</p>
-          <p><em>From Related Searches</em> sections removed: {data?.removeFromRelatedSearches}</p>
-          <p><em>People Also Search For</em> sections removed: {data?.removePeopleAlsoSearchFor}</p>
-          <p>Total search sections removed: {totalSearchSections}</p>
+          <p><em>Channels New To You</em> sections removed: {data?.removeNewChannelsFromSearch || "Data not found"}</p>
+          <p><em>Latest Posts From ...</em> sections removed: {data?.removeLatestPostsFromSearch || "Data not found"}</p>
+          <p><em>Latest Videos From </em> sections removed: {data?.removeLatestVideosFromSearch || "Data not found"}</p>
+          <p><em>Previously Watched</em> sections removed: {data?.removePreviouslyWatchedFromSearch || "Data not found"}</p>
+          <p><em>For You</em> sections removed: {data?.removeForYouFromSearch || "Data not found"}</p>
+          <p><em>People Also Watched</em> sections removed: {data?.removePeopleAlsoWatchedFromSearch || "Data not found"}</p>
+          <p><em>From Related Searches</em> sections removed: {data?.removeFromRelatedSearches || "Data not found"}</p>
+          <p><em>People Also Search For</em> sections removed: {data?.removePeopleAlsoSearchFor || "Data not found"}</p>
+          <p>Total search sections removed: {totalSearchSections || "Data not found"}</p>
         </div>
       </div>
     </main>
