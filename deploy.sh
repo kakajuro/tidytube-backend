@@ -7,7 +7,10 @@ echo Pulling latest images...
 docker compose pull
 
 # Rebuild and deploy new containers
-docker-compose up -d --no-deps --build
+# Build in a couple of stages
+docker compose up web server db -d --no-deps --build
+docker compose up umami umami_db statping -d --no-deps --build
+docker compose up caddy -d --no-deps --build
 
 # Cleanup
 echo Cleaning up unused containers...
