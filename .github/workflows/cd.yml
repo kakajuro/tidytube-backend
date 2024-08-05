@@ -27,4 +27,5 @@ jobs:
           key: ${{ secrets.PASSWORD }}
           script: |
             cd var/www/tidytube-backend
+            git pull
             ./deploy.sh
