@@ -16,15 +16,14 @@ services:
   # Server
   server:
     container_name: server
-    build:
-      context: server
-      dockerfile: Dockerfile
-      target: runner
+    image: ghcr.io/kakajuro/tidytube-server:latest
     restart: unless-stopped
     depends_on:
       - db
     environment:
       - NODE_ENV=production
+    env_file:
+      - server/.env
     networks:
       - tidytube-prod
   
