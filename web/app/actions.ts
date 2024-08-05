@@ -37,16 +37,13 @@ export async function getStats() {
     apiURL = `https://${process.env.NEXT_PUBLIC_API_URL}`;
   }
 
+  let res = await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }});
 
-  await fetch(`${apiURL}/api/stats`, { next: { revalidate: 60 }})
-  .then(res => {
-    let jsonRes:Promise<StatsData> = res.json();
-    return jsonRes
-  })
-  .catch(err => {
-    if (err) {
-      console.log("An error occurred fetching the stats data");
-    }
-    return {}
-  });
+  if (!res.ok) {
+    return null
+  }
+
+  let jsonRes:StatsData = await res.json();
+  return jsonRes;
+
 }
