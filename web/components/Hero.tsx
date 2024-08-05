@@ -25,11 +25,11 @@ export default function Hero() {
       <BlurFade className="w-[60%] md:w-[65%] lg:w-[50%] xl:w-[45%] text-2xl pt-4" delay={1} duration={0.6} inline={false}>
         <span>Customise your Youtube experience with the tidytube browser extension.</span>
         <BlurFade className="pt-1" delay={1} inline>
-          <span>Tidytube allows you to remove sections of the Youtube UI so you can see more of what you <span className="text-red-600 underline decoration-red-700/40">actually</span> want to see</span>
+          <span> tidytube allows you to remove sections of the Youtube UI so you can see more of what you <span className="text-red-600 underline decoration-red-700/40">actually</span> want to see</span>
         </BlurFade>
       </BlurFade>
       <BlurFade className="w-[50%] text-2xl xl:pb-4 xl:pt-10" delay={1.2} duration={0.6}>
-        <h2 className="pt-20 text-4xl font-semibold bg-gradient-to-tr from-white via-slate-300 text-transparent bg-clip-text">Download</h2>
+        <h2 className="pt-20 pb-4 text-4xl font-semibold bg-gradient-to-tr from-white via-slate-300 text-transparent bg-clip-text">Download coming soon</h2>
       </BlurFade>
       <div className="flex flex-row justify-evenly items-center pt-10 h-8 w-[80%] sm:w-[60%] md:w-[60%] lg:w-[70%]">
         <BlurFade delay={baseDelayIcons + 0.1} duration={0.2} inline={false}>
