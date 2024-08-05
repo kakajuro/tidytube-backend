@@ -6,8 +6,8 @@ git pull
 echo Pulling latest images...
 docker compose pull
 
-# Test command
-echo Test command
+# Rebuild and deploy new containers
+docker-compose up -d --no-deps --build
 
 # Cleanup
 echo Cleaning up unused containers...
@@ -15,4 +15,4 @@ docker image prune -f
 docker container prune -f
 
 # Complete
-echo CD complete
+echo CD completed sucessfully

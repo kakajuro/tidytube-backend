@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - "./docker-compose.yml"
+      - "docker-compose.yml"
       - "deploy.sh"
 
   workflow_dispatch: 
