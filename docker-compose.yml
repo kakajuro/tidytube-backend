@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - NEXT_PUBLIC_UMAMI_ENABLED=1
     env_file:
       - web/.env.local
     networks:
