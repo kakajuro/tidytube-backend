@@ -33,9 +33,7 @@ export default function RootLayout({
   return (
     <html className={`bg-custom-dark text-white overflow-x-hidden ${jost.className}`} lang="en">
       <body>
-        {
-          (parseInt(process.env.NEXT_PUBLIC_UMAMI_ENABLED!) == 1) ? <Script defer src="https://analytics.tidytube.app/script.js" data-website-id="2c86b049-a17c-4bd8-9f46-75ec2b519997" data-domains="tidytube.app,api.tidytube.app,status.tidytube.app" /> : null
-        }
+        <Script defer src="https://analytics.tidytube.app/script.js" data-website-id="2c86b049-a17c-4bd8-9f46-75ec2b519997" data-domains="tidytube.app,api.tidytube.app,status.tidytube.app" />
         <JotaiProvider>
           <Navbar />
           {children}
