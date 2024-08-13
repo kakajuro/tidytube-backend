@@ -62,7 +62,7 @@ export default function About() {
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <h1 className="text-3xl font-semibold pb-6">timeline</h1>
         <p>Project start date: Jan 27 2024 (yes its a long time ago but I had exams in the middle of developing this)</p>
-        <p>Project release date: TBD</p>
+        <p>Project release date: August 13 2024</p>
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <h1 className="text-3xl font-semibold pb-6">contact details</h1>
