@@ -49,53 +49,40 @@ router.get('/', async (req: Request, res: Response) => {
 
   // Store userID in database and return encyrpted userID alongside userNo|timestamp|uninstallKey
   // Update currentUserCount and total install stats
-  return new Promise(resolve => {
-    
-    return new Promise(resolve => {
-      redisClient.hincrby("stats", "currentUsers", 1)
-      .catch(error => {
-        console.warn(`An error ocurred incrementing currentUsers: ${error}`);
-        res.status(500).send({"message": "An internal server error occurred"});
-      })
-    });
-    
-  })
-  .then(response => {
-
-    return new Promise(resolve => {
-      redisClient.hincrby("stats", "totalInstalls", 1)
-      .catch(error => {
-        console.warn(`An error ocurred incrementing totalInstalls : ${error}`);
-        res.status(500).send({"message": "An internal server error occurred"});
-      })
-    });
-    
-  })
-  .then(response => {
-
-    return new Promise(resolve => {
-      let installNo = redisClient.hget("stats", "totalInstalls")
-      .catch(error => {
-        console.warn(`An error ocurred getting totalInstalls : ${error}`);
-        res.status(500).send({"message": "An internal server error occurred"});
-      });
+  await redisClient.hincrby("stats", "currentUsers", 1)
+  .then(() => {
+    redisClient.hincrby("stats", "totalInstalls", 1)
+    .catch(error => {
+      console.warn(`An error ocurred incrementing totalInstalls : ${error}`);
+      res.status(500).send({"message": "An internal server error occurred"});
     })
-    
+  })
+  .then(() => {
+    let installNo = redisClient.hget("stats", "totalInstalls")
+    .catch(error => {
+      console.warn(`An error ocurred getting totalInstalls : ${error}`);
+      res.status(500).send({"message": "An internal server error occurred"});
+    });
+    return installNo
   })
   .then(installNo => {
+    let timestamp = new Date().getTime();
+    let dataString = `${installNo}|${timestamp}|${encryptedUninstallKey}`;
 
-    return new Promise(resolve => {
-      let timestamp = new Date().getTime();
-      let dataString = `${installNo}|${timestamp}|${encryptedUninstallKey}`;
-
-      redisClient.set(encryptedClientID, dataString);
-      console.log(`${timestamp} New user created with eClientID: ${encryptedClientID}`);
-    })
-    
+    redisClient.set(encryptedClientID, dataString)
+    .catch(error => {
+      console.warn(`Error setting new user: ${error}`);
+      res.status(500).send({"message": "An internal server error occurred"});
+    });
+    console.log(`${timestamp} New user created with eClientID: ${encryptedClientID}`);
   })
-  .then(response => {
+  .then(() => {
     return res.status(200).send({clientID: clientID, uninstallKey: uninstallKey});
   })  
+  .catch(error => {
+    console.warn(`An error ocurred incrementing currentUsers: ${error}`);
+    res.status(500).send({"message": "An internal server error occurred"});
+  });
 
 });
 
