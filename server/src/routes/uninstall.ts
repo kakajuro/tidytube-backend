@@ -20,29 +20,33 @@ router.post("/", async (req: Request, res: Response) => {
 	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 	const encryptedUninstallKey = sha256.hmac(uninstallKeySecret, uninstallKey);
 
+	let uninstallKeyValid;
+
 	await redisClient.exists(encryptedClientID)
 	.then((exists) => {
-
-		let uninstallKeyValid;
 
 		if (exists) {
 			// Check if uninstall key is valid
 			uninstallKeyValid = redisClient.get(encryptedClientID)
 			.then(dataString => {
 				let storedUninstallKey = dataString?.split("|")[2];
-				console.log("Stored UK" + storedUninstallKey);
-				console.log(encryptedUninstallKey)
 				return (storedUninstallKey == encryptedUninstallKey);
+			})
+			.then(isValid => {
+				uninstallKeyValid = isValid;
 			})
 			.catch(error => {
 		    console.warn(`There was an error retrieving this client key: ${clientID}`);
 		    res.status(500).send({"message": "An internal server error occurred"});
 		  })
+
+		} else {
+			uninstallKeyValid = null
 		}
 
-		console.log(uninstallKeyValid);
-
+		console.log("UninstallKeyValid " + uninstallKeyValid);
 		return uninstallKeyValid
+		
 	})
 	.then((uninstallKeyValid) => {
 
