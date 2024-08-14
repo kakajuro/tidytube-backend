@@ -30,6 +30,8 @@ router.post("/", async (req: Request, res: Response) => {
 			uninstallKeyValid = redisClient.get(encryptedClientID)
 			.then(dataString => {
 				let storedUninstallKey = dataString?.split("|")[2];
+				console.log("Stored UK" + storedUninstallKey);
+				console.log(encryptedUninstallKey)
 				return (storedUninstallKey == encryptedUninstallKey);
 			})
 			.catch(error => {
@@ -38,12 +40,14 @@ router.post("/", async (req: Request, res: Response) => {
 		  })
 		}
 
+		console.log(uninstallKeyValid);
+
 		return uninstallKeyValid
 	})
 	.then((uninstallKeyValid) => {
 
 		if (uninstallKeyValid) {
-			
+
 			// If these checks pass delete the user from the database
 			redisClient.del(encryptedClientID)
 			.then(() => {
