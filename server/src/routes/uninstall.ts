@@ -27,10 +27,10 @@ router.post("/", async (req: Request, res: Response) => {
 
 		if (exists) {
 			// Check if uninstall key is valid
-			redisClient.get(encryptedClientID)
+			uninstallKeyValid = redisClient.get(encryptedClientID)
 			.then(dataString => {
 				let storedUninstallKey = dataString?.split("|")[2];
-				uninstallKeyValid = (storedUninstallKey === encryptedUninstallKey);
+				return (storedUninstallKey == encryptedUninstallKey);
 			})
 			.catch(error => {
 		    console.warn(`There was an error retrieving this client key: ${clientID}`);
@@ -43,6 +43,7 @@ router.post("/", async (req: Request, res: Response) => {
 	.then((uninstallKeyValid) => {
 
 		if (uninstallKeyValid) {
+			
 			// If these checks pass delete the user from the database
 			redisClient.del(encryptedClientID)
 			.then(() => {
@@ -51,6 +52,9 @@ router.post("/", async (req: Request, res: Response) => {
 					console.warn(`Error updating stats: ${error}`);
 					return res.status(500).send({"message": "An internal server error occurred"});
 				})
+			})
+			.then(() => {
+				res.status(200).json({"message": "Uninstalled successfully"});
 			})
 			.catch(error => {
 				console.warn(`Error deleting clientID from database: ${error}`);
@@ -63,12 +67,9 @@ router.post("/", async (req: Request, res: Response) => {
 		}
 
 	})
-	.then(() => {
-		res.status(200).json({"message": "Uninstalled successfully"});
-	})
 	.catch(error => {
 		console.warn(`clientID recieved does not exist: ${error}`);
-		return res.status(401).json({"message": "Invalid credentials"});
+		return res.status(500).send({"message": "An internal server error occurred"});
 	})
 
 });
