@@ -22,6 +22,8 @@ router.post("/", async (req: Request, res: Response) => {
 
 	let uninstallKeyValid;
 
+	console.log("EclientID" + encryptedClientID);
+
 	await redisClient.exists(encryptedClientID)
 	.then((exists) => {
 
