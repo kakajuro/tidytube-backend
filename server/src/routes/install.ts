@@ -11,7 +11,7 @@ dotenv.config();
 
 const router = express.Router();
 
-router.get('/', async (req: Request, res: Response) => {
+router.get('/', validInstall, async (req: Request, res: Response) => {
 
   const clientIDSecret = process.env.CLIENTIDSECRET!;
   const uninstallKeySecret = process.env.UNINSTALLKEYSECRET!;
