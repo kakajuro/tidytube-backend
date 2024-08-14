@@ -22,22 +22,17 @@ router.post("/", async (req: Request, res: Response) => {
 
 	let uninstallKeyValid;
 
-	console.log("EclientID: " + encryptedClientID);
-
 	await redisClient.exists(encryptedClientID)
 	.then((exists) => {
-
-		console.log(exists);
 
 		if (exists) {
 			// Check if uninstall key is valid
 			uninstallKeyValid = redisClient.get(encryptedClientID)
 			.then(dataString => {
 				let storedUninstallKey = dataString?.split("|")[2];
+				console.log("Stored: " + storedUninstallKey);
+				console.log("EUninstall: " + encryptedUninstallKey);
 				return (storedUninstallKey == encryptedUninstallKey);
-			})
-			.then(isValid => {
-				uninstallKeyValid = isValid;
 			})
 			.catch(error => {
 		    console.warn(`There was an error retrieving this client key: ${clientID}`);
