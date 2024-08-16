@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Jost } from "next/font/google";
 import "./globals.css";
 
+import Providers from './providers'
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import BackToTopButton from "@/components/BackToTopButton";
@@ -34,14 +36,16 @@ export default function RootLayout({
     <html className={`bg-custom-dark text-white overflow-x-hidden ${jost.className}`} lang="en">
       <body>
         <Script defer src="https://analytics.tidytube.app/script.js" data-website-id="2c86b049-a17c-4bd8-9f46-75ec2b519997" data-domains="tidytube.app,api.tidytube.app,status.tidytube.app" />
-        <JotaiProvider>
-          <Navbar />
-          {children}
-          <div className="bg-footer-col">
-            <Footer />
-            <BackToTopButton />
-          </div>
-        </JotaiProvider>
+        <Providers>
+          <JotaiProvider>
+            <Navbar />
+            {children}
+            <div className="bg-footer-col">
+              <Footer />
+              <BackToTopButton />
+            </div>
+          </JotaiProvider>
+        </Providers>
       </body>
     </html>
   );

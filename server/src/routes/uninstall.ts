@@ -30,12 +30,10 @@ router.post("/", async (req: Request, res: Response) => {
 			uninstallKeyValid = redisClient.get(encryptedClientID)
 			.then(dataString => {
 				let storedUninstallKey = dataString?.split("|")[2];
-				console.log("Stored: " + storedUninstallKey);
-				console.log("EUninstall: " + encryptedUninstallKey);
 				return (storedUninstallKey == encryptedUninstallKey);
 			})
 			.catch(error => {
-		    console.warn(`There was an error retrieving this client key: ${clientID}`);
+		    console.warn(`There was an error retrieving this client key: ${error}`);
 		    res.status(500).send({"message": "An internal server error occurred"});
 		  })
 
