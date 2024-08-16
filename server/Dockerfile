@@ -9,8 +9,8 @@ RUN yarn --frozen-lockfile
 
 FROM base AS dev
 WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
+COPY --from=deps /app/node_modules ./node_modules
 
 # Allows hot reload to work on windows
 ENV WATCHPACK_POLLING=TRUE
