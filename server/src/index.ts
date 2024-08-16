@@ -31,8 +31,8 @@ if (env == "development") {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(generalLimiter);
-app.use(burstLimiter);
+//app.use(generalLimiter);
+//app.use(burstLimiter);
 app.set("trust proxy", 1);
 
 // Setup db

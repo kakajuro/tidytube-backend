@@ -15,19 +15,29 @@ router.get("/", async (req: Request, res: Response) => {
 
 	const clientID = req.headers["client-id"]! as string;
 
+	if (!clientID) {
+		console.warn("No clientID in request");
+      	return res.status(401).send({"message": "Invalid credentials"});
+	}
+
 	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
 	await redisClient.get(encryptedClientID)
 	.then(dataString => {
-		let installNo = dataString?.split("|")[0];
-    let timestamp = dataString?.split("|")[1];
+		if (!dataString) {
+			console.warn("clientID not found");
+			return res.status(401).json({ message: "Invalid credentials" });
+		}
 
-		return res.status(200).json({installNo: installNo, timestamp: timestamp});
+		let installNo = dataString?.split("|")[0];
+    	let timestamp = dataString?.split("|")[1];
+
+		return res.status(200).json({installNo, timestamp});
 
 	})
 	.catch(error => {
 		console.warn(`There was an error checking whether this key exists: ${encryptedClientID}`);
-      	res.status(500).send("An internal server error occurred");
+      	return res.status(500).send("An internal server error occurred");
 	})
 
 });
