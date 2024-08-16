@@ -76,14 +76,15 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 		let sumOfSectionsRemoved:number = 0;
 		Object.values(incomingStats).forEach(val => sumOfSectionsRemoved += val);
 
-		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
+		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved)
+    .then(() => {
+      res.status(200).json({"message": "Stats updated sucessfully"});
+    })
 
 	} catch (error) {
 		console.warn(`Error updating stats: ${error}`);
 		res.status(500).json("An internal server error occurred");
 	}
-
-	res.status(200).json({"message": "Stats updated sucessfully"});
 
 });
 
