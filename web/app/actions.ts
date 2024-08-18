@@ -24,7 +24,7 @@ export interface StatsData {
 
   "currentUsers": number,
   "totalInstalls": number,
-  "sectionsRemovedTotal": number
+  "totalSectionsRemoved": number
 }
 
 export async function getStats() {
