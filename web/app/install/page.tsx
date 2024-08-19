@@ -15,6 +15,9 @@ export default function Page() {
   const searchParams = useSearchParams();
   const clientID = searchParams.get("clientID");
 
+  const gifWidth = optionsPage.width;
+  const gifHeight = optionsPage.height;
+
   const { data, error, isLoading, isPending, isFetching, isError, refetch } = useQuery({
     queryKey: ["install"],
     retry: 0,
@@ -95,7 +98,7 @@ export default function Page() {
     )
   }
 
-  if (data) {
+  if (true) {
 
     return (
       <div className="grid h-screen place-content-center px-4">
@@ -108,6 +111,8 @@ export default function Page() {
             <Image 
               src={optionsPage}
               alt="Gif showing the options page"
+              width={gifWidth*0.8}
+              height={gifHeight*0.8}
             />
           </div>
           
