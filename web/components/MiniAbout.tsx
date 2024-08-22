@@ -4,7 +4,7 @@ import Link from "next/link";
 import { BorderBeam } from "@/components/magicui/border-beam";
 import { synopsisForMiniAbout } from "@/components/text";
 
-import tidytubeScreenshot from "@/app/images/tidytubescreenshot.png";
+import tidytubePromoGif from "@/app/images/tidytubepromo.gif";
 
 export default function MiniAbout() {
 
@@ -23,10 +23,9 @@ export default function MiniAbout() {
         <div className="justify-self-center place-self-center">
           <div className="relative border-beam rounded-lg drop-shadow-glow">
             <Image 
-              src={tidytubeScreenshot}
-              alt="Screenshot of tidytube browser extension" 
+              src={tidytubePromoGif}
+              alt="GIF showing how the browser extension works" 
               className="rounded-lg"
-              placeholder="blur"
             />
             <BorderBeam />
           </div>
