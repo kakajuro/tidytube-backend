@@ -20,7 +20,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center pb-44 sm:pb-0">
       <Particles className="absolute inset-0 z-[-5]" quantity={150} refresh />
-      <h1 className="opacity-0 font-semibold text-5xl sm:text-7xl lg:text-8xl mb-3 animate-[fadeIn_1000ms_cubic-bezier(0.4,_0,_0.2,_1)_1000ms_forwards]">Youtube but
+      <h1 className="z-[-100] opacity-0 font-semibold text-5xl sm:text-7xl lg:text-8xl mb-3 animate-[fadeIn_1000ms_cubic-bezier(0.4,_0,_0.2,_1)_1000ms_forwards]">Youtube but
         <span className="bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text animate-[fadeIn_1500ms_cubic-bezier(0.4,_0,_0.2,_1)_1000ms_forwards]"> tidier.</span>
       </h1>
       <BlurFade className="w-[60%] md:w-[65%] lg:w-[50%] xl:w-[45%] text-2xl pt-4" delay={1} duration={0.6} inline={false}>
