@@ -20,6 +20,7 @@ export default function page() {
             - Although I am not directly affiliated with Ajay or SponsorBlock, I took alot of inspiration from this extension.</li>
           <li className="pb-4">All icons provided by <Link className="hover:underline hover:cursor-pointer" href="https://react-icons.github.io/react-icons/" passHref target="_blank">react-icons</Link></li>
           <li className="pb-4">Logo: <Link className="hover:underline hover:cursor-pointer" href="https://github.com/kakajuro" passHref target="_blank">@kakajuro</Link></li>
+          <li className="pb-4">and finally a HUGE thank you to all the <Link className="hover:underline hover:cursor-pointer" href="https://github.com/sponsors/kakajuro" passHref target="_blank">sponsors</Link> and supporters!</li>
         </ul>
       </div>
     </main>
