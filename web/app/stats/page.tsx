@@ -5,7 +5,7 @@ import { getStats } from "../actions"
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Stats - tidytube"
+  title: "Stats"
 }
 
 

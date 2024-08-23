@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of use - tidytube"
+  title: "Terms of use"
 }
 
 export default function page() {
