@@ -18,7 +18,7 @@ export default function Hero() {
   const baseDelayIcons = 1.2;
 
   return (
-    <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center">
+    <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center pb-44 sm:pb-0">
       <Particles className="absolute inset-0 z-[-5]" quantity={150} refresh />
       <h1 className="font-semibold text-5xl sm:text-7xl lg:text-8xl mb-3 transition-opacity ease-in duration-400 delay-400 opacity-100">Youtube but
         <span className="bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text transition-opacity ease-in duration-400 delay-800 opacity-100"> tidier.</span>
@@ -29,7 +29,7 @@ export default function Hero() {
           <span> tidytube allows you to remove sections of the Youtube UI so you can see more of what you <span className="text-red-600 underline decoration-red-700/40">actually</span> want to see</span>
         </BlurFade>
       </BlurFade>
-      <BlurFade className="w-[50%] text-2xl xl:pb-4 xl:pt-10" delay={1.2} duration={0.6}>
+      <BlurFade className="w-[%] text-2xl xl:pb-4 xl:pt-10" delay={1.2} duration={0.6}>
         <h2 className="pt-20 pb-4 text-4xl font-semibold bg-gradient-to-tr from-white via-slate-300 text-transparent bg-clip-text">Download</h2>
       </BlurFade>
       <div className="flex flex-row justify-evenly items-center pt-10 h-8 w-[80%] sm:w-[60%] md:w-[60%] lg:w-[70%]">

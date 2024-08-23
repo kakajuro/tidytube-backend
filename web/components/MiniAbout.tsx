@@ -16,7 +16,7 @@ export default function MiniAbout() {
           <span className="text-lg sm:text-xl lg:max-w-[80%] xl:max-w-[70%] xl:text-xl">{synopsisForMiniAbout}</span>
         </div>
         <div className="justify-self-center place-self-center">
-          <div className="h-64 w-[24rem] sm:h-80 sm:w-[36rem] lg:h-96 lg:w-[40rem] xl:w-[44rem] relative border-beam rounded-lg drop-shadow-glow">
+          <div className="h-48 w-60 xs:h-64 xs:w-[24rem] sm:h-80 sm:w-[36rem] lg:h-96 lg:w-[40rem] xl:w-[44rem] relative border-beam rounded-lg drop-shadow-glow">
             <Image 
               src={tidytubePromoGif}
               alt="GIF showing how the browser extension works"
