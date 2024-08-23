@@ -11,25 +11,29 @@ export default function MiniAbout() {
   return (
     <section className="min-h-screen lg:px-48 flex flex-col items-center justify-center select-none">
       <h1 className="font-semibold text-4xl pb-12 lg:pb-20">what is tidytube?</h1>
-      <div className="grid place-content-center grid-cols-1 lg:grid-cols-2 text-white">
-        <div className="flex flex-col pb-10 lg:pb-0 lg:pr-12 xl:pr-0 max-w-[350px] sm:max-w-[480px] justify-center text-center lg:text-left">
-          <span className="text-lg sm:text-xl pb-8">{synopsisForMiniAbout}</span>
-          <button className="text-lg sm:text-xl underline hover:cursor-pointer hover:text-red-700 transition-all ease-in-out">
-            <Link href="about">
-              Find out more about how it works:
-            </Link>
-          </button>
+      <div className="grid place-content-center grid-cols-1 lg:gap-12 text-white">
+        <div className="flex flex-col px-10 pb-10 lg:pb-0 xl:pr-0 sm:max-w-[640px] lg:max-w-screen-2xl  justify-center items-center text-center">
+          <span className="text-lg sm:text-xl lg:max-w-[80%] xl:max-w-[70%] xl:text-xl">{synopsisForMiniAbout}</span>
         </div>
         <div className="justify-self-center place-self-center">
-          <div className="relative border-beam rounded-lg drop-shadow-glow">
+          <div className="h-64 w-[24rem] sm:h-80 sm:w-[36rem] lg:h-96 lg:w-[40rem] xl:w-[44rem] relative border-beam rounded-lg drop-shadow-glow">
             <Image 
               src={tidytubePromoGif}
-              alt="GIF showing how the browser extension works" 
+              alt="GIF showing how the browser extension works"
+              layout="fill"
+              objectFit="cover" 
               className="rounded-lg"
             />
             <BorderBeam />
           </div>
         </div>
+      </div>
+      <div className="pt-14 lg:pt-20">
+        <button className="text-lg sm:text-xl underline hover:cursor-pointer hover:text-red-700 transition-all ease-in-out">
+          <Link href="about">
+            Find out more about how it works:
+          </Link>
+        </button>
       </div>
     </section>
   )
