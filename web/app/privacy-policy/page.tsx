@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { privacyOpening, serverOne } from "@/components/text";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - tidytube"
+  title: "Privacy Policy"
 }
 
 export default function page() {

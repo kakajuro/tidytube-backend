@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Credits - tidytube"
+  title: "Credits"
 }
 
 export default function page() {

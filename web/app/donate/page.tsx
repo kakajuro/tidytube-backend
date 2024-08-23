@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { donationMessage, donationMessageTwo } from "@/components/text";
 
 export const metadata: Metadata = {
-  title: "Donate - tidytube"
+  title: "Donate"
 }
 
 export default function page() {

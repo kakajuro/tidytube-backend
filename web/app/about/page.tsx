@@ -7,7 +7,7 @@ import { dataNoticeAbout, howItWorksAbout } from "@/components/text"
 import sectionsRemovedGif from "@/app/images/sectionsRemoved.gif";
 
 export const metadata: Metadata = {
-  title: "About - tidytube"
+  title: "About"
 }
 
 export default function About() {
