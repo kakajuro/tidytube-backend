@@ -8,7 +8,6 @@ import Particles from "./magicui/particles";
 import { BsBrowserChrome } from "react-icons/bs";
 import { BsBrowserEdge } from "react-icons/bs";
 import { BsBrowserFirefox } from "react-icons/bs";
-import { FaOpera } from "react-icons/fa6";
 
 export default function Hero() {
 
@@ -21,13 +20,9 @@ export default function Hero() {
   return (
     <section className="flex flex-col w-screen min-h-screen items-center justify-center pt-12 overflow-hidden select-none text-center">
       <Particles className="absolute inset-0 z-[-5]" quantity={150} refresh />
-      <BlurFade className="mb-3" delay={0.4} inView inline={false}>
-        <h1 className="z-0 font-semibold text-5xl sm:text-7xl lg:text-8xl">Youtube but
-          <BlurFade delay={0.8} inline>
-            <span className="bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text"> tidier.</span>
-          </BlurFade>  
-        </h1>
-      </BlurFade>
+      <h1 className="font-semibold text-5xl sm:text-7xl lg:text-8xl mb-3 transition-opacity ease-in duration-400 delay-400 opacity-100">Youtube but
+        <span className="bg-gradient-to-r from-red-600 via-red-800 to-red-600 text-transparent bg-clip-text transition-opacity ease-in duration-400 delay-800 opacity-100"> tidier.</span>
+      </h1>
       <BlurFade className="w-[60%] md:w-[65%] lg:w-[50%] xl:w-[45%] text-2xl pt-4" delay={1} duration={0.6} inline={false}>
         <span>Customise your Youtube experience with the tidytube browser extension.</span>
         <BlurFade className="pt-1" delay={1} inline>

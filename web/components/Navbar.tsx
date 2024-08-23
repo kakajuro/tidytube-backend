@@ -24,7 +24,7 @@ function MobileNav() {
   } 
 
   return (
-    <section className="z-100 fixed bg-custom-dark w-screen h-[30vh] flex flex-col items-center justify-center md:hidden">
+    <section className="z-100 fixed bg-custom-dark w-screen h-[35vh] flex flex-col items-center justify-center md:hidden">
       <div className="relative flex flex-col items-center justify-center pt-32 w-screen">
         <div className="ml-auto pr-6 pb-2">
           <button onClick={handleClick}>
