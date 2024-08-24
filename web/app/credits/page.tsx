@@ -14,6 +14,7 @@ export default function page() {
           <li className="pb-4">
             Created + maintined by <Link className="hover:underline hover:cursor-pointer" href="https://github.com/kakajuro" passHref target="_blank">@kakajuro</Link>
           </li>
+          <li className="pb-4">Thanks to all the <Link className="hover:underline hover:cursor-pointer" href="https://github.com/kakajuro/tidytube/graphs/contributors" passHref target="_blank">contributors</Link>!</li>
           <li className="pb-4">
             <Link className="hover:underline hover:cursor-pointer" href="https://sponsor.ajay.app" passHref target="_blank">Sponsorblock </Link> 
             (<Link className="hover:underline hover:cursor-pointer" href="https://ajay.app/" passHref target="_blank">Ajay Ramachandran</Link>) 
