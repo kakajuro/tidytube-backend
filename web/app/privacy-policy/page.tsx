@@ -37,7 +37,7 @@ export default function page() {
           <h2 className="text-2xl font-semibold pb-6 underline">Requests made to the server:</h2>
           <ul>
             <li className="pb-4">-When you install the extension a request is made to the server to assign you a client ID and an uninstall key</li>
-            <li className="pb-4">-Every 20 minutes a request is made to the server to update it with the extension actions. This is aggregated to form the stats that can be found on the <Link href="/stats" className="hover:cursor-pointer hover:underline">stats page</Link>.</li>
+            <li className="pb-4">-Every 20 minutes a request is made to the server to update it with the extension actions. This data is aggregated to form the stats that can be found <Link href="/stats" className="hover:cursor-pointer hover:underline">here</Link>. As of tidytube v1.0.3 this can be disabled by checking the <em>Disable Telemetry</em> option in the extension settings.</li>
           </ul>
         </div>
         <div className="text-lg pt-4">
