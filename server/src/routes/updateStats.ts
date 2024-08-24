@@ -44,12 +44,10 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 
 	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
-	await redisClient.exists(encryptedClientID)
-	.then(exists => {
-		if (!exists) {
-			return res.json(401).json({"message": "Invalid credentials"})
-		}
-	});
+	const exists = await redisClient.exists(encryptedClientID);
+  if (!exists) {
+    return res.json(401).json({"message": "Invalid credentials"});
+  }
 
 	try {
 		await redisClient.hincrby("stats", "removeAdCompanionSlots", incomingStats.removeAdCompanionSlots);
