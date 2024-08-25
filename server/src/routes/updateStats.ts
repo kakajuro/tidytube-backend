@@ -46,7 +46,7 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 
 	try {
     const exists = await redisClient.exists(encryptedClientID);
-    if (!exists) {
+    if (!exists && !res.headersSent) {
       return res.json(401).json({"message": "Invalid credentials"});
     }
 
@@ -76,11 +76,13 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 
 		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
 
-    return res.status(200).json({"message": "Stats updated sucessfully"});
+    return !res.headersSent ? res.status(200).json({"message": "Stats updated sucessfully"}) : null;
 
 	} catch (error) {
 		console.warn(`Error updating stats: ${error}`);
-		return res.status(500).json("An internal server error occurred");
+    if (!res.headersSent) {
+      return res.status(500).json("An internal server error occurred");
+    }
 	}
 
 });
