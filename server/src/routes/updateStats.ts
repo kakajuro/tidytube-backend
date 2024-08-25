@@ -44,12 +44,12 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 
 	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
-	const exists = await redisClient.exists(encryptedClientID);
-  if (!exists) {
-    return res.json(401).json({"message": "Invalid credentials"});
-  }
-
 	try {
+    const exists = await redisClient.exists(encryptedClientID);
+    if (!exists) {
+      return res.json(401).json({"message": "Invalid credentials"});
+    }
+
 		await redisClient.hincrby("stats", "removeAdCompanionSlots", incomingStats.removeAdCompanionSlots);
 		await redisClient.hincrby("stats", "removeAdsFromReccomendations", incomingStats.removeAdsFromReccomendations);
 		await redisClient.hincrby("stats", "removeFeaturedBanners", incomingStats.removeFeaturedBanners);
@@ -74,14 +74,14 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 		let sumOfSectionsRemoved:number = 0;
 		Object.values(incomingStats).forEach(val => sumOfSectionsRemoved += val);
 
-		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved)
+		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
+
+    return res.status(200).json({"message": "Stats updated sucessfully"});
 
 	} catch (error) {
 		console.warn(`Error updating stats: ${error}`);
 		return res.status(500).json("An internal server error occurred");
 	}
-
-  return res.status(200).json({"message": "Stats updated sucessfully"});
 
 });
 
