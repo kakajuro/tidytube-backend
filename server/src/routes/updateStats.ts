@@ -50,31 +50,31 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
       return res.json(401).json({"message": "Invalid credentials"});
     }
 
-		await redisClient.hincrby("stats", "removeAdCompanionSlots", incomingStats.removeAdCompanionSlots);
-		await redisClient.hincrby("stats", "removeAdsFromReccomendations", incomingStats.removeAdsFromReccomendations);
-		await redisClient.hincrby("stats", "removeFeaturedBanners", incomingStats.removeFeaturedBanners);
-		await redisClient.hincrby("stats", "removeForYouFromChannel", incomingStats.removeForYouFromChannel);
-		await redisClient.hincrby("stats", "removeForYouFromSearch", incomingStats.removeForYouFromSearch);
-		await redisClient.hincrby("stats", "removeFromRelatedSearches", incomingStats.removeFromRelatedSearches);
-		await redisClient.hincrby("stats", "removeLatestPostsFromSearch", incomingStats.removeLatestPostsFromSearch);
-		await redisClient.hincrby("stats", "removeLatestVideosFromSearch", incomingStats.removeLatestVideosFromSearch);
-		await redisClient.hincrby("stats", "removeNewChannelsFromSearch", incomingStats.removeNewChannelsFromSearch);
-		await redisClient.hincrby("stats", "removeNews", incomingStats.removeNews);
-		await redisClient.hincrby("stats", "removePeopleAlsoSearchFor", incomingStats.removePeopleAlsoSearchFor);
-		await redisClient.hincrby("stats", "removePeopleAlsoWatchedFromSearch", incomingStats.removePeopleAlsoWatchedFromSearch);
-		await redisClient.hincrby("stats", "removePopups", incomingStats.removePopups);
-		await redisClient.hincrby("stats", "removePreviouslyWatchedFromSearch", incomingStats.removePreviouslyWatchedFromSearch);
-		await redisClient.hincrby("stats", "removeShortsExplore", incomingStats.removeShortsExplore);
-		await redisClient.hincrby("stats", "removeShortsFromChannel", incomingStats.removeShortsFromChannel);
-		await redisClient.hincrby("stats", "removeShortsFromSearch", incomingStats.removeShortsFromSearch);
-		await redisClient.hincrby("stats", "removeShortsPlayback", incomingStats.removeShortsPlayback);
-		await redisClient.hincrby("stats", "removeShortsRemixingThisVideo", incomingStats.removeShortsRemixingThisVideo);
-		await redisClient.hincrby("stats", "removeShortsWhileWatching", incomingStats.removeShortsWhileWatching);
+		redisClient.hincrby("stats", "removeAdCompanionSlots", incomingStats.removeAdCompanionSlots);
+		redisClient.hincrby("stats", "removeAdsFromReccomendations", incomingStats.removeAdsFromReccomendations);
+		redisClient.hincrby("stats", "removeFeaturedBanners", incomingStats.removeFeaturedBanners);
+		redisClient.hincrby("stats", "removeForYouFromChannel", incomingStats.removeForYouFromChannel);
+		redisClient.hincrby("stats", "removeForYouFromSearch", incomingStats.removeForYouFromSearch);
+		redisClient.hincrby("stats", "removeFromRelatedSearches", incomingStats.removeFromRelatedSearches);
+		redisClient.hincrby("stats", "removeLatestPostsFromSearch", incomingStats.removeLatestPostsFromSearch);
+		redisClient.hincrby("stats", "removeLatestVideosFromSearch", incomingStats.removeLatestVideosFromSearch);
+		redisClient.hincrby("stats", "removeNewChannelsFromSearch", incomingStats.removeNewChannelsFromSearch);
+		redisClient.hincrby("stats", "removeNews", incomingStats.removeNews);
+		redisClient.hincrby("stats", "removePeopleAlsoSearchFor", incomingStats.removePeopleAlsoSearchFor);
+		redisClient.hincrby("stats", "removePeopleAlsoWatchedFromSearch", incomingStats.removePeopleAlsoWatchedFromSearch);
+		redisClient.hincrby("stats", "removePopups", incomingStats.removePopups);
+		redisClient.hincrby("stats", "removePreviouslyWatchedFromSearch", incomingStats.removePreviouslyWatchedFromSearch);
+		redisClient.hincrby("stats", "removeShortsExplore", incomingStats.removeShortsExplore);
+		redisClient.hincrby("stats", "removeShortsFromChannel", incomingStats.removeShortsFromChannel);
+		redisClient.hincrby("stats", "removeShortsFromSearch", incomingStats.removeShortsFromSearch);
+		redisClient.hincrby("stats", "removeShortsPlayback", incomingStats.removeShortsPlayback);
+		redisClient.hincrby("stats", "removeShortsRemixingThisVideo", incomingStats.removeShortsRemixingThisVideo);
+		redisClient.hincrby("stats", "removeShortsWhileWatching", incomingStats.removeShortsWhileWatching);
 
 		let sumOfSectionsRemoved:number = 0;
 		Object.values(incomingStats).forEach(val => sumOfSectionsRemoved += val);
 
-		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
+		redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
 
     return res.status(200).json({"message": "Stats updated sucessfully"});
 
