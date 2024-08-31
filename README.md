@@ -76,7 +76,7 @@ web/.env
 
 ```
 ## API Docs
-Coming soon...
+API Docs available [here](https://github.com/kakajuro/tidytube-backend/wiki/API-Documentation)
 ### License
 
 This project is licensed under the GPLv3 License - see [LICENSE.md](LICENSE) file for more information
