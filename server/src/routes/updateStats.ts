@@ -36,7 +36,30 @@ interface PageChangeData {
 
 router.post("/", validInstall, async (req: Request, res: Response) => {
 
-	const incomingStats:PageChangeData = req.body;
+  const defaultStats: PageChangeData = {
+    removeAdCompanionSlots: 0,
+    removeAdsFromReccomendations: 0,
+    removeFeaturedBanners: 0,
+    removeForYouFromChannel: 0,
+    removeForYouFromSearch: 0,
+    removeFromRelatedSearches: 0,
+    removeLatestPostsFromSearch: 0,
+    removeLatestVideosFromSearch: 0,
+    removeNewChannelsFromSearch: 0,
+    removeNews: 0,
+    removePeopleAlsoSearchFor: 0,
+    removePeopleAlsoWatchedFromSearch: 0,
+    removePopups: 0,
+    removePreviouslyWatchedFromSearch: 0,
+    removeShortsExplore: 0,
+    removeShortsFromChannel: 0,
+    removeShortsFromSearch: 0,
+    removeShortsPlayback: 0,
+    removeShortsRemixingThisVideo: 0,
+    removeShortsWhileWatching: 0
+  };
+
+	const incomingStats:PageChangeData = { ...defaultStats, ...req.body };
 
 	const clientIDSecret = process.env.CLIENTIDSECRET!;
 
@@ -50,26 +73,12 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
       return res.json(401).json({"message": "Invalid credentials"});
     }
 
-		await redisClient.hincrby("stats", "removeAdCompanionSlots", incomingStats.removeAdCompanionSlots);
-		await redisClient.hincrby("stats", "removeAdsFromReccomendations", incomingStats.removeAdsFromReccomendations);
-		await redisClient.hincrby("stats", "removeFeaturedBanners", incomingStats.removeFeaturedBanners);
-		await redisClient.hincrby("stats", "removeForYouFromChannel", incomingStats.removeForYouFromChannel);
-		await redisClient.hincrby("stats", "removeForYouFromSearch", incomingStats.removeForYouFromSearch);
-		await redisClient.hincrby("stats", "removeFromRelatedSearches", incomingStats.removeFromRelatedSearches);
-		await redisClient.hincrby("stats", "removeLatestPostsFromSearch", incomingStats.removeLatestPostsFromSearch);
-		await redisClient.hincrby("stats", "removeLatestVideosFromSearch", incomingStats.removeLatestVideosFromSearch);
-		await redisClient.hincrby("stats", "removeNewChannelsFromSearch", incomingStats.removeNewChannelsFromSearch);
-		await redisClient.hincrby("stats", "removeNews", incomingStats.removeNews);
-		await redisClient.hincrby("stats", "removePeopleAlsoSearchFor", incomingStats.removePeopleAlsoSearchFor);
-		await redisClient.hincrby("stats", "removePeopleAlsoWatchedFromSearch", incomingStats.removePeopleAlsoWatchedFromSearch);
-		await redisClient.hincrby("stats", "removePopups", incomingStats.removePopups);
-		await redisClient.hincrby("stats", "removePreviouslyWatchedFromSearch", incomingStats.removePreviouslyWatchedFromSearch);
-		await redisClient.hincrby("stats", "removeShortsExplore", incomingStats.removeShortsExplore);
-		await redisClient.hincrby("stats", "removeShortsFromChannel", incomingStats.removeShortsFromChannel);
-		await redisClient.hincrby("stats", "removeShortsFromSearch", incomingStats.removeShortsFromSearch);
-		await redisClient.hincrby("stats", "removeShortsPlayback", incomingStats.removeShortsPlayback);
-		await redisClient.hincrby("stats", "removeShortsRemixingThisVideo", incomingStats.removeShortsRemixingThisVideo);
-		await redisClient.hincrby("stats", "removeShortsWhileWatching", incomingStats.removeShortsWhileWatching);
+		for (const [key, value] of Object.entries(incomingStats)) {
+      if (!Number.isInteger(value)) {
+          throw new Error(`Value for ${key} is not an integer: ${value}`);
+      }
+      await redisClient.hincrby("stats", key, value);
+    }
 
 		let sumOfSectionsRemoved:number = 0;
 		Object.values(incomingStats).forEach(val => sumOfSectionsRemoved += val);
