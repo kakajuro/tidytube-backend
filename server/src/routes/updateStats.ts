@@ -75,9 +75,10 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
 
 		for (const [key, value] of Object.entries(incomingStats)) {
       if (!Number.isInteger(value)) {
-          throw new Error(`Value for ${key} is not an integer: ${value}`);
+          console.warn(`WARNING updating stats: Value for ${key} is not an integer: ${value}. Skipping this value...`);
+      } else {
+        await redisClient.hincrby("stats", key, value);
       }
-      await redisClient.hincrby("stats", key, value);
     }
 
 		let sumOfSectionsRemoved:number = 0;
