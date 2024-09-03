@@ -30,9 +30,9 @@ export default async function page() {
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">General:</h2>
           <p>Ads removed from reccomendations: {data?.removeAdsFromReccomendations || "Data not found"}</p>
-          <p>Featured banners removed: {data?.removeFeaturedBanners || "Data not found"}</p>
-          <p>Popups removed: {data?.removePopups || "Data not found"}</p>
           <p>Ad companions removed: {data?.removeAdCompanionSlots || "Data not found"}</p>
+          <p>Popups removed: {data?.removePopups || "Data not found"}</p>
+          <p>Featured banners removed: {data?.removeFeaturedBanners || "Data not found"}</p>
           <p><em>For You</em> sections removed from channel pages: {data?.removeForYouFromChannel || "Data not found"}</p>
           <p>News sections removed: {data?.removeNews || "Data not found"}</p>
         </div>
