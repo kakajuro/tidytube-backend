@@ -21,6 +21,8 @@ export interface StatsData {
   "removeShortsPlayback": number,
   "removeShortsRemixingThisVideo": number,
   "removeShortsWhileWatching": number,
+  "removeRecommendedTopicsFromSearch": number,
+  "autoDisableAutoplay": number
 
   "currentUsers": number,
   "totalInstalls": number,
