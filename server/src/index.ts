@@ -9,7 +9,7 @@ import meRouter from "./routes/me";
 import statsRouter from "./routes/stats";
 import updateStatsRouter from "./routes/updateStats";
 
-import initDB from "./util/initDb";
+import { initDB } from "./util/initDb";
 import redisClient from "./util/redisClient";
 
 import dotenv from "dotenv";
