@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import validInstall from "../middleware/validInstall";
 
 import redisClient from "../util/redisClient";
+import setTotalSectionsRemoved from "../util/setTotalSectionsRemoved"
 
 import { sha256 } from "js-sha256";
 
@@ -36,10 +37,7 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
       }
     }
 
-		let sumOfSectionsRemoved:number = 0;
-		Object.values(incomingStats).forEach(val => sumOfSectionsRemoved += val);
-
-		await redisClient.hincrby("stats", "totalSectionsRemoved", sumOfSectionsRemoved);
+		await setTotalSectionsRemoved();
 
     return !res.headersSent ? res.status(200).json({"message": "Stats updated sucessfully"}) : null;
 
