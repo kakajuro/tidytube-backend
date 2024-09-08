@@ -9,6 +9,7 @@ import { useSearchParams } from "next/navigation";
 import { redirect } from "next/navigation";
 
 import optionsPage from "@/app/images/optionspage.gif"
+import ConfettiFireworks from "@/components/ui/confetti";
 
 export default function Page() {
 
@@ -98,7 +99,15 @@ export default function Page() {
     )
   }
 
-  if (true) {
+  if (data) {
+
+    // Determine whether to play confetti animation
+    let hasAnimated = sessionStorage.getItem("hasAnimatedFireworksInstall");
+
+    if (!hasAnimated) {
+      ConfettiFireworks();
+      sessionStorage.setItem("hasAnimatedFireworksInstall", true);  
+    }
 
     return (
       <div className="grid h-screen place-content-center px-4">
