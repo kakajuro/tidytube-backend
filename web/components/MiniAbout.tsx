@@ -5,7 +5,6 @@ import { BorderBeam } from "@/components/magicui/border-beam";
 import { synopsisForMiniAbout } from "@/components/text";
 
 import tidytubePromoGif from "@/app/images/tidytubepromo.gif";
-import tidytubePromo from "@/app/images/tidytubepromo2.mp4";
 
 export default function MiniAbout() {
 
