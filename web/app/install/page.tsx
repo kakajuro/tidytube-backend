@@ -104,9 +104,9 @@ export default function Page() {
     // Determine whether to play confetti animation
     let hasAnimated = sessionStorage.getItem("hasAnimatedFireworksInstall");
 
-    if (!hasAnimated) {
+    if (hasAnimated != "true") {
       ConfettiFireworks();
-      sessionStorage.setItem("hasAnimatedFireworksInstall", true);  
+      sessionStorage.setItem("hasAnimatedFireworksInstall", "true");  
     }
 
     return (
