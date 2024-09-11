@@ -19,13 +19,22 @@ export default async function page() {
 
   return (
     <main className="flex flex-col items-center min-h-screen w-screen p-12">
-      <div className="flex flex-col w-[90%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
+      <div className="flex flex-col w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
         <h1 className="text-5xl font-semibold pb-8">stats</h1>
         <div className="text-xl">
           <h2 className="text-2xl font-semibold pb-4 underline">Overall stats:</h2>
           <p>Total downloads: {data?.totalInstalls || "Data not found"}</p>
           <p>Current number of users: {data?.currentUsers || "Data not found"}</p>
-          <p>Total sections removed: {data?.totalSectionsRemoved || "Data not found"}</p>
+          {
+            data?.totalSectionsRemoved ? (
+              <div className="group flex flex-col sm:flex-row">
+                <p className="sm:mr-4">Total sections removed: {data?.totalSectionsRemoved}</p>
+                <p className="opacity-0 group-hover:opacity-100 transition-all bg-[#d90000] rounded text-[0.8rem] px-2 max-w-60 flex items-center justify-center">(Currently excludes ads + popups)</p>
+              </div>
+            ) : (
+              <p>Data not found</p>
+            )
+          }
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">General:</h2>
