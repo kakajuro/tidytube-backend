@@ -12,7 +12,7 @@ export default async function setTotalSectionsRemoved() {
 	// Aggregate stats excluding some stats
 	for (const [key, value] of Object.entries(data)) {
 		if (key === "totalInstalls" || key === "currentUsers"|| key === "removePopups" || key === "removeAdsFromReccomendations" || key === "totalSectionsRemoved") {
-			console.log("Sucessfully skipped fields while calculating totalSectionsRemoved.")
+			//console.log("Sucessfully skipped fields while calculating totalSectionsRemoved.")
 		} else {
 			totalSectionsCount += parseInt(value);
 		}
