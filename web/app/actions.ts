@@ -21,6 +21,8 @@ export interface StatsData {
   "removeShortsPlayback": number,
   "removeShortsRemixingThisVideo": number,
   "removeShortsWhileWatching": number,
+  "removeRecommendedTopicsFromSearch": number,
+  "autoDisableAutoplay": number
 
   "currentUsers": number,
   "totalInstalls": number,
@@ -48,13 +50,8 @@ export async function getStats() {
   .catch(err => {
     console.log(`An error occurred fetching the data: ${err}`);
     return null
-  })
+  });
 
-  // if (!res.ok) {
-  //   return null
-  // }
-
-  // let jsonRes:StatsData = await res.json();
   return res;
 
 }

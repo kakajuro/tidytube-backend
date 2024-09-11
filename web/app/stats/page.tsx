@@ -1,13 +1,13 @@
 export const dynamic = "force-dynamic";
 
+import { Metadata } from "next";
 import { getStats } from "../actions"
 
-import { Metadata } from "next";
+import NewFeatureBadge from "@/components/newFeatureBadge";
 
 export const metadata: Metadata = {
   title: "Stats"
 }
-
 
 export default async function page() {
 
@@ -19,13 +19,22 @@ export default async function page() {
 
   return (
     <main className="flex flex-col items-center min-h-screen w-screen p-12">
-      <div className="flex flex-col w-[90%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
+      <div className="flex flex-col w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
         <h1 className="text-5xl font-semibold pb-8">stats</h1>
         <div className="text-xl">
           <h2 className="text-2xl font-semibold pb-4 underline">Overall stats:</h2>
           <p>Total downloads: {data?.totalInstalls || "Data not found"}</p>
           <p>Current number of users: {data?.currentUsers || "Data not found"}</p>
-          <p>Total sections removed: {data?.totalSectionsRemoved || "Data not found"}</p>
+          {
+            data?.totalSectionsRemoved ? (
+              <div className="group flex flex-col sm:flex-row">
+                <p className="sm:mr-4">Total sections removed: {data?.totalSectionsRemoved}</p>
+                <p className="opacity-0 group-hover:opacity-100 transition-all bg-[#d90000] rounded text-[0.8rem] px-2 max-w-60 flex items-center justify-center">(Currently excludes ads + popups)</p>
+              </div>
+            ) : (
+              <p>Data not found</p>
+            )
+          }
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">General:</h2>
@@ -35,6 +44,7 @@ export default async function page() {
           <p>Featured banners removed: {data?.removeFeaturedBanners || "Data not found"}</p>
           <p><em>For You</em> sections removed from channel pages: {data?.removeForYouFromChannel || "Data not found"}</p>
           <p>News sections removed: {data?.removeNews || "Data not found"}</p>
+          <p>Auto disabled autoplay: {data?.autoDisableAutoplay || "Data not found"} <NewFeatureBadge /> </p>
         </div>
         <div className="text-xl pt-12">
           <h2 className="text-2xl font-semibold pb-4 underline">Shorts:</h2>
@@ -56,6 +66,7 @@ export default async function page() {
           <p><em>People Also Watched</em> sections removed: {data?.removePeopleAlsoWatchedFromSearch || "Data not found"}</p>
           <p><em>From Related Searches</em> sections removed: {data?.removeFromRelatedSearches || "Data not found"}</p>
           <p><em>People Also Search For</em> sections removed: {data?.removePeopleAlsoSearchFor || "Data not found"}</p>
+          <span>Recommended topics removed: {data?.removeRecommendedTopicsFromSearch || "Data not found"} <NewFeatureBadge /> </span>
           <p>Total search sections removed: {totalSearchSections || "Data not found"}</p>
         </div>
       </div>
