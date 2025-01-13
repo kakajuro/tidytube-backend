@@ -45,7 +45,7 @@ function MobileNav() {
             <Link onClick={handleClick} className="text-lg text-white transition hover:text-white/75 hover:underline" href="/stats"> Stats </Link>
           </li>
           <li>
-            <Link onClick={handleClick} className="text-lg text-white transition hover:text-white/75 hover:underline" href="/donate"> Donate </Link>
+            <Link onClick={handleClick} className="text-lg text-red-600 transition hover:text-red-600/75 hover:underline" href="/donate"> Donate </Link>
           </li>
         </ul>
       </div>
@@ -84,7 +84,7 @@ export default function Navbar() {
               <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="/stats"> Stats </Link>
             </li>
             <li>
-              <Link className="text-lg text-white transition hover:text-white/75 hover:underline" href="/donate"> Donate </Link>
+              <Link className="text-lg text-red-600 transition hover:text-red-600/75 hover:underline" href="/donate"> Donate </Link>
             </li>
           </ul>
         </nav>
