@@ -33,10 +33,7 @@ router.post("/", validInstall, async (req: Request, res: Response) => {
       return res.status(401).json({"message": "Invalid credentials"});
     } else {
       for (const [key, value] of Object.entries(incomingStats)) {
-        if (key === "removeExploreMoreFromSearch") {
-          console.log("removeExploreMoreFromSearch: ", value);
-        }
-      
+        
         if (!Number.isInteger(value)) {
             console.warn(`WARNING updating stats: Value for ${key} is not an integer: ${value}. Skipping this value...`);
         } else {
