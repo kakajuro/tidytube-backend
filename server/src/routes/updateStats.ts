@@ -15,38 +15,47 @@ const router = express.Router();
 
 router.post("/", validInstall, async (req: Request, res: Response) => {
 
-	const incomingStats:PageChangeData = { ...defaultStats, ...req.body };
+  const incomingStats:PageChangeData = { ...defaultStats, ...req.body };
 
-	const clientIDSecret = process.env.CLIENTIDSECRET!;
+  const clientIDSecret = process.env.CLIENTIDSECRET!;
 
-	const clientID = req.headers["client-id"]! as string;
+  const clientID = req.headers["client-id"]! as string;
 
-	const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
+  const encryptedClientID = sha256.hmac(clientIDSecret, clientID);
 
-	try {
-    const exists = await redisClient.exists(encryptedClientID);
-    if (!exists && !res.headersSent) {
-      return res.json(401).json({"message": "Invalid credentials"});
-    }
+  try {
 
-		for (const [key, value] of Object.entries(incomingStats)) {
-      if (!Number.isInteger(value)) {
-          console.warn(`WARNING updating stats: Value for ${key} is not an integer: ${value}. Skipping this value...`);
-      } else {
-        await redisClient.hincrby("stats", key, value);
+    const exists = await redisClient.exists(encryptedClientID).then((exists) => {
+      return exists
+    });
+
+    if (!exists) {
+      return res.status(401).json({"message": "Invalid credentials"});
+    } else {
+      for (const [key, value] of Object.entries(incomingStats)) {
+        if (key === "removeExploreMoreFromSearch") {
+          console.log("removeExploreMoreFromSearch: ", value);
+        }
+      
+        if (!Number.isInteger(value)) {
+            console.warn(`WARNING updating stats: Value for ${key} is not an integer: ${value}. Skipping this value...`);
+        } else {
+          await redisClient.hincrby("stats", key, value);
+        }
+
       }
+
+      await setTotalSectionsRemoved();
+
+      return !res.headersSent ? res.status(200).json({"message": "Stats updated sucessfully"}) : null;
     }
 
-		await setTotalSectionsRemoved();
-
-    return !res.headersSent ? res.status(200).json({"message": "Stats updated sucessfully"}) : null;
-
-	} catch (error) {
-		console.warn(`Error updating stats: ${error}`);
+  } catch (error) {
+    console.warn(`Error updating stats: ${error}`);
     if (!res.headersSent) {
       return res.status(500).json("An internal server error occurred");
     }
-	}
+  }
 
 });
 
