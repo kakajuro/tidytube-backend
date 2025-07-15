@@ -43,10 +43,11 @@ api.{$DOMAIN_NAME:domain.invalid} {
 # I am now hosting multiple projects using the same vps
 # so this section is for another project
 # this solution is temporary, I will build a better one in future
+# Note to self: Map to internal ports
 
 {$DOMAIN_NAME_2:domain.invalid} {
   encode gzip
-  reverse_proxy RAOweb:4321
+  reverse_proxy RAOweb:3000
 }
 
 www.{$DOMAIN_NAME_2:domain.invalid} {
@@ -55,7 +56,7 @@ www.{$DOMAIN_NAME_2:domain.invalid} {
 
 analytics.{$DOMAIN_NAME_2:domain.invalid} {
   encode gzip
-  reverse_proxy RAOumami:3001
+  reverse_proxy RAOumami:3000
 }
 
 ok.{$DOMAIN_NAME_2:domain.invalid} {
