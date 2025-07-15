@@ -46,7 +46,7 @@ api.{$DOMAIN_NAME:domain.invalid} {
 
 {$DOMAIN_NAME_2:domain.invalid} {
   encode gzip
-  reverse_proxy RAOweb:3000
+  reverse_proxy RAOweb:4321
 }
 
 www.{$DOMAIN_NAME_2:domain.invalid} {
