@@ -39,3 +39,25 @@ api.{$DOMAIN_NAME:domain.invalid} {
     }
   
 }
+
+# I am now hosting multiple projects using the same vps
+# so this section is for another project
+# this solution is temporary, I will build a better one in future
+
+{$DOMAIN_NAME_2:domain.invalid} {
+  encode gzip
+  reverse_proxy RAOweb:3000
+}
+
+www.{$DOMAIN_NAME_2:domain.invalid} {
+    redir https://{$DOMAIN_NAME}{uri} permanent
+}
+
+analytics.{$DOMAIN_NAME_2:domain.invalid} {
+  encode gzip
+  reverse_proxy RAOumami:3001
+}
+
+ok.{$DOMAIN_NAME_2:domain.invalid} {
+  respond /health-check 200
+}
