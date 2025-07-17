@@ -23,6 +23,7 @@ export interface PageChangeData {
   "removeShortsRemixingThisVideo": number,
   "removeShortsWhileWatching": number
   "removeRecommendedTopicsFromSearch": number,
+  "removeAIsummaries": number,
   "autoDisableAutoplay": number
 }
 
@@ -49,6 +50,7 @@ export const defaultStats: PageChangeData = {
   removeShortsRemixingThisVideo: 0,
   removeShortsWhileWatching: 0,
   removeRecommendedTopicsFromSearch: 0,
+  removeAIsummaries: 0,
   autoDisableAutoplay: 0
 };
 
@@ -76,15 +78,15 @@ export async function initDB() {
           console.log("Error checking if key exists...")
         } else {
 
-          if (!exists) { 
-            redisClient.hset("stats", key, value); 
+          if (!exists) {
+            redisClient.hset("stats", key, value);
             console.log(`Added ${key} to stats data model`);
           }
 
         }
 
       });
-    
+
     }
 
   }
