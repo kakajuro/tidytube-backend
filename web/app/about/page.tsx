@@ -21,11 +21,11 @@ export default function About() {
         <p className="pb-4 text-xl">{howItWorksAbout}</p>
         <p className="pb-4 text-xl">{dataNoticeAbout} <a className="hover:underline hover:cursor-pointer">here.</a></p>
         <div className="flex self-center">
-          <Image 
-            src={sectionsRemovedGif} 
+          <Image
+            src={sectionsRemovedGif}
             alt="Gif showing extension popup"
             width={sectionsRemovedGif.width*sf}
-            height={sectionsRemovedGif.height*sf} 
+            height={sectionsRemovedGif.height*sf}
           />
         </div>
       </div>
@@ -61,7 +61,7 @@ export default function About() {
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">
         <h1 className="text-3xl font-semibold pb-6">timeline</h1>
-        <p>Project start date: Jan 27 2024 (yes its a long time ago but I had exams in the middle of developing this)</p>
+        <p>Project start date: Jan 27 2024</p>
         <p>Project release date: August 13 2024</p>
       </div>
       <div className="flex flex-col w-[90%] md:w-[50%] pt-12 text-xl">

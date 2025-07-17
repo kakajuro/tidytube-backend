@@ -12,7 +12,7 @@ export default function page() {
     <main className="flex flex-col items-center min-h-screen w-screen p-12">
       <div className="flex flex-col w-[90%] md:w-[60%] lg:w-[50%] xl:w-[40%]">
         <h1 className="text-5xl font-semibold pb-8">donate</h1>
-        <p className="font-medium text-xl pb-4">{donationMessage}</p>
+        <p className="font-medium text-xl pb-4">I&apos;m David (kakajuro), a university undergrad and I&apos;ve worked on the <a href="/" className="hover:cursor-pointer hover:underline">tidytube</a> and <a href="https://removeaioverview.com" target="_blank" className="hover:cursor-pointer hover:underline">Remove AI Overview</a> browser extensions in my free time. Your support would help me pay for the server/hosting costs as well as help me pay for university. Donations are of course absolutely not required but are very much appreciated!</p>
         <p className="font-medium text-xl pb-4">{donationMessageTwo}</p>
         <div className="flex flex-col pt-6 text-xl">
           <h2 className="font-semibold text-3xl pb-6">links:</h2>
