@@ -44,6 +44,7 @@ export default async function page() {
           <p>Featured banners removed: {data?.removeFeaturedBanners || "Data not found"}</p>
           <p><em>For You</em> sections removed from channel pages: {data?.removeForYouFromChannel || "Data not found"}</p>
           <p>News sections removed: {data?.removeNews || "Data not found"}</p>
+          <p>AI Summaries removed: {data?.removeAIsummaries || "Data not found"} <NewFeatureBadge /> </p>
           <p>Auto disabled autoplay: {data?.autoDisableAutoplay || "Data not found"}</p>
         </div>
         <div className="text-xl pt-12">
@@ -66,7 +67,7 @@ export default async function page() {
           <p><em>People Also Watched</em> sections removed: {data?.removePeopleAlsoWatchedFromSearch || "Data not found"}</p>
           <p><em>From Related Searches</em> sections removed: {data?.removeFromRelatedSearches || "Data not found"}</p>
           <p><em>People Also Search For</em> sections removed: {data?.removePeopleAlsoSearchFor || "Data not found"}</p>
-          <p><em>Explore More</em> sections removed: {data?.removeExploreMoreFromSearch || "Data not found"} <NewFeatureBadge /> </p>
+          <p><em>Explore More</em> sections removed: {data?.removeExploreMoreFromSearch || "Data not found"} </p>
           <span>Recommended topics removed: {data?.removeRecommendedTopicsFromSearch || "Data not found"}</span>
           <p>Total search sections removed: {totalSearchSections || "Data not found"}</p>
         </div>
