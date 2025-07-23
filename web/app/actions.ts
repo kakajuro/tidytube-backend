@@ -23,6 +23,7 @@ export interface StatsData {
   "removeShortsWhileWatching": number,
   "removeRecommendedTopicsFromSearch": number,
   "removeExploreMoreFromSearch": number,
+  "removeAIsummaries": number,
   "autoDisableAutoplay": number
 
   "currentUsers": number,
