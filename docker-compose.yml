@@ -13,6 +13,7 @@ services:
       - web/.env.local
     networks:
       - tidytube-prod
+      - global-network
 
   # Server
   server:
@@ -27,6 +28,7 @@ services:
       - server/.env
     networks:
       - tidytube-prod
+      - global-network
   
   # Database
   db:
@@ -41,6 +43,7 @@ services:
       - server/.env
     networks:
       - tidytube-prod
+      - global-network
   
   # Caddy (reverse proxy)
   caddy:
@@ -83,6 +86,7 @@ services:
       - ./umami/.env
     networks:
       - tidytube-prod
+      - global-network
   umami_db:
     container_name: umami_db
     image: postgres:15-alpine
@@ -98,6 +102,7 @@ services:
       - ./umami/.env
     networks:
       - tidytube-prod
+      - global-network
 
   # Statping for uptime stats
   statping:
@@ -110,7 +115,7 @@ services:
       DB_CONN: sqlite
     networks:
       - tidytube-prod
-
+      - global-network
 
 networks:
   tidytube-prod:
