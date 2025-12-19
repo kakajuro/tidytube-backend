@@ -46,26 +46,26 @@ services:
       - global-network
   
   # Caddy (reverse proxy)
-  caddy:
-    container_name: caddy
-    image: caddy:2-alpine
-    restart: unless-stopped
-    ports:
-      - 80:80
-      - 443:443
-    volumes:
-      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
-      - ./caddy/caddy_data:/data
-      - ./caddy/caddy_config:/config
-    networks:
-      - tidytube-prod
-      - global-network
-    depends_on:
-      - web
-      - server
-      - umami
-    env_file:
-      - ./caddy/.env
+  # caddy:
+  #   container_name: caddy
+  #   image: caddy:2-alpine
+  #   restart: unless-stopped
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   volumes:
+  #     - ./caddy/Caddyfile:/etc/caddy/Caddyfile
+  #     - ./caddy/caddy_data:/data
+  #     - ./caddy/caddy_config:/config
+  #   networks:
+  #     - tidytube-prod
+  #     - global-network
+  #   depends_on:
+  #     - web
+  #     - server
+  #     - umami
+  #   env_file:
+  #     - ./caddy/.env
 
   # Umami (website analytics)
   umami:
